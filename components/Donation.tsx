@@ -14,110 +14,75 @@ export default function Donation() {
   };
 
   return (
-    <section id="donation" className="py-32 relative overflow-hidden">
-      {/* Decorative ornaments */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -mr-32 -mt-32" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -ml-32 -mb-32" />
+    <section id="donation" className="py-24 relative">
+      <div className="container mx-auto px-4 max-w-4xl">
+        <div className="bg-white/40 backdrop-blur-md border border-white/60 p-12 md:p-16 rounded-sm shadow-xl relative overflow-hidden">
+          {/* Subtle corner decorations */}
+          <div className="absolute top-0 left-0 w-20 h-20 border-t border-l border-gold/30" />
+          <div className="absolute bottom-0 right-0 w-20 h-20 border-b border-r border-gold/30" />
 
-      <div className="container mx-auto px-4 max-w-5xl relative z-10">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <div className="w-12 h-px bg-gradient-to-r from-transparent to-gold" />
-            <span className="text-xs uppercase tracking-[0.3em] text-stone-500">
-              Contributions
-            </span>
-            <div className="w-12 h-px bg-gradient-to-l from-transparent to-gold" />
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-serif text-gold mb-6 tracking-wide">
+              Liste de Mariage
+            </h2>
+            <p className="text-stone-600 max-w-2xl mx-auto leading-relaxed italic [font-family:var(--font-playfair)] text-lg">
+              "Votre présence est notre plus beau cadeau.{" "}
+              <br className="hidden md:block" /> Si vous souhaitez participer à
+              notre nouvelle vie..."
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl font-serif text-gold mb-6">
-            Liste de Mariage
-          </h2>
-          <p className="text-stone-600 max-w-2xl mx-auto leading-relaxed italic [font-family:var(--font-playfair)]">
-            Votre présence est notre plus beau cadeau. Si vous souhaitez
-            néanmoins participer à notre nouvelle vie, voici comment vous pouvez
-            contribuer :
-          </p>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* PayPal Card */}
-          <div className="group relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 to-gold/10 rounded-2xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-            <div className="relative bg-white p-10 rounded-2xl shadow-xl border border-gold/10 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-[#0070BA]/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Wallet className="w-8 h-8 text-[#0070BA]" />
+          <div className="grid md:grid-cols-2 gap-12 items-center relative">
+            {/* Vertical Separator for Desktop */}
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent -translate-x-1/2" />
+
+            {/* Horizontal Separator for Mobile */}
+            <div className="md:hidden w-full h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent my-4" />
+
+            {/* IBAN Section */}
+            <div className="flex flex-col items-center text-center space-y-6">
+              <span className="font-serif text-2xl text-stone-700">
+                Virement
+              </span>
+              <div className="flex flex-col space-y-2">
+                <span className="text-xs uppercase tracking-[0.2em] text-stone-400">
+                  IBAN
+                </span>
+                <button
+                  onClick={handleCopy}
+                  className="group relative flex items-center justify-center gap-2 font-mono text-lg md:text-xl text-stone-600 hover:text-gold transition-colors py-2 px-4 rounded hover:bg-white/50"
+                >
+                  <span>{iban}</span>
+                  {copied ? (
+                    <Check className="w-4 h-4 text-green-500" />
+                  ) : (
+                    <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-stone-400" />
+                  )}
+                  {copied && (
+                    <span className="absolute -bottom-6 text-[10px] text-green-600 font-sans tracking-wide">
+                      Copié dans le presse-papier
+                    </span>
+                  )}
+                </button>
+                <span className="text-sm text-stone-500">Cedric Kamsi</span>
               </div>
-              <h3 className="text-2xl font-serif text-stone-800 mb-4">
-                PayPal
-              </h3>
-              <p className="text-stone-500 mb-8 text-sm">
-                Une solution simple et sécurisée pour vos dons en quelques
-                clics.
+            </div>
+
+            {/* PayPal Section */}
+            <div className="flex flex-col items-center text-center space-y-6">
+              <span className="font-serif text-2xl text-stone-700">PayPal</span>
+              <p className="text-stone-500 text-sm max-w-[200px]">
+                Rapide et sécurisé via Kamsicedric@gmail.com
               </p>
               <a
                 href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Kamsicedric@gmail.com&item_name=Mariage+Cedric+et+Karelle&currency_code=EUR"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-[#0070BA] hover:bg-[#005ea6] text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                className="inline-flex items-center gap-2 border border-gold text-gold hover:bg-gold hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-serif"
               >
-                Contribuer via PayPal
+                <Wallet className="w-4 h-4" />
+                <span>Faire un don</span>
               </a>
-              <span className="mt-4 text-[10px] text-stone-400 font-mono tracking-tight">
-                Kamsicedric@gmail.com
-              </span>
-            </div>
-          </div>
-
-          {/* IBAN Card */}
-          <div className="group relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 to-gold/10 rounded-2xl blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-            <div className="relative bg-white p-10 rounded-2xl shadow-xl border border-gold/10 flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <CreditCard className="w-8 h-8 text-gold" />
-              </div>
-              <h3 className="text-2xl font-serif text-stone-800 mb-4">
-                Virement
-              </h3>
-              <p className="text-stone-500 mb-8 text-sm">
-                Vous pouvez également effectuer un virement direct sur notre
-                compte.
-              </p>
-
-              <div className="w-full bg-stone-50 p-6 rounded-xl border border-stone-100 relative group/iban">
-                <div className="flex flex-col gap-1 items-start text-left mb-4">
-                  <span className="text-[10px] uppercase tracking-widest text-stone-400">
-                    IBAN
-                  </span>
-                  <span className="font-mono text-sm md:text-base font-bold text-stone-700 break-all">
-                    {iban}
-                  </span>
-                </div>
-                <div className="flex justify-between items-center text-left">
-                  <div className="flex flex-col gap-1">
-                    <span className="text-[10px] uppercase tracking-widest text-stone-400">
-                      Titulaire
-                    </span>
-                    <span className="text-sm font-semibold text-stone-700">
-                      Cedric Kamsi
-                    </span>
-                  </div>
-                  <button
-                    onClick={handleCopy}
-                    className="p-3 bg-white rounded-lg shadow-sm border border-stone-200 hover:border-gold hover:text-gold transition-colors flex items-center gap-2 text-xs font-bold"
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="w-4 h-4 text-green-500" />
-                        <span>Copié !</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="w-4 h-4" />
-                        <span>Copier</span>
-                      </>
-                    )}
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
