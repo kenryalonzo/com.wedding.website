@@ -7,7 +7,10 @@ interface HeroProps {
 
 export default function Hero({ children }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden py-20">
+    <section
+      id="accueil"
+      className="relative min-h-screen flex flex-col justify-center items-center text-center overflow-hidden py-20"
+    >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image

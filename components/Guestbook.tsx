@@ -10,7 +10,7 @@ export default function Guestbook({ messages }: GuestbookProps) {
   if (messages.length === 0) return null;
 
   return (
-    <section id="guestbook" className="py-24 relative overflow-hidden">
+    <section id="galerie" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <span className="text-gold uppercase tracking-[0.2em] text-sm font-sans mb-3 block">

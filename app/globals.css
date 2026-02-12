@@ -3,6 +3,15 @@
 :root {
   --background: #f0f9ff;
   --foreground: #171717;
+  --brand-white: #ffffff;
+  --brand-gold-soft: rgba(243, 155, 21, 0.3);
+  --brand-royal-ink: #001f54;
+  --brand-royal: #001f54;
+  --brand-gold: #f39b15;
+}
+
+.bg-gradient-gold {
+  background: linear-gradient(135deg, #f39b15 0%, #ffd700 100%);
 }
 
 @theme inline {

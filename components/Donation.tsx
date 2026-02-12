@@ -14,7 +14,7 @@ export default function Donation() {
   };
 
   return (
-    <section id="donation" className="py-24 relative">
+    <section id="remerciements" className="py-24 relative">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white/40 backdrop-blur-md border border-white/60 p-12 md:p-16 rounded-sm shadow-xl relative overflow-hidden">
           {/* Subtle corner decorations */}
@@ -34,10 +34,10 @@ export default function Donation() {
 
           <div className="grid md:grid-cols-2 gap-12 items-center relative">
             {/* Vertical Separator for Desktop */}
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent -translate-x-1/2" />
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-gold/40 to-transparent -translate-x-1/2" />
 
             {/* Horizontal Separator for Mobile */}
-            <div className="md:hidden w-full h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent my-4" />
+            <div className="md:hidden w-full h-px bg-linear-to-r from-transparent via-gold/40 to-transparent my-4" />
 
             {/* IBAN Section */}
             <div className="flex flex-col items-center text-center space-y-6">

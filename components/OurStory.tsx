@@ -1,6 +1,6 @@
 export default function OurStory() {
   return (
-    <section className="py-32 relative overflow-hidden">
+    <section id="histoire" className="py-32 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gold/15 rounded-full blur-[100px]" />
@@ -12,11 +12,11 @@ export default function OurStory() {
         <div className="text-center mb-20">
           <div className="inline-block">
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-px bg-gradient-to-r from-transparent to-gold" />
+              <div className="w-16 h-px bg-linear-to-r from-transparent to-gold" />
               <span className="text-xs uppercase tracking-[0.3em] text-stone-500">
                 Notre Histoire
               </span>
-              <div className="w-16 h-px bg-gradient-to-l from-transparent to-gold" />
+              <div className="w-16 h-px bg-linear-to-l from-transparent to-gold" />
             </div>
             <h2 className="text-5xl md:text-6xl font-serif text-gold mb-4">
               Une Histoire d'Amour
@@ -30,7 +30,7 @@ export default function OurStory() {
         {/* Story Timeline - Vertical with alternating sides */}
         <div className="relative">
           {/* Center line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold via-[#e08a00] to-gold hidden md:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-linear-to-b from-gold via-[#e08a00] to-gold hidden md:block" />
 
           <div className="space-y-16 md:space-y-24">
             {/* Chapter 1 - Left side */}
@@ -138,7 +138,7 @@ export default function OurStory() {
           <div className="flex justify-center mt-20">
             <div className="relative">
               <div className="absolute inset-0 bg-gold/20 blur-xl rounded-full" />
-              <div className="relative bg-gradient-to-br from-gold to-[#e08a00] p-6 rounded-full shadow-2xl">
+              <div className="relative bg-linear-to-br from-gold to-[#e08a00] p-6 rounded-full shadow-2xl">
                 <svg
                   className="w-8 h-8 text-white"
                   fill="currentColor"

@@ -7,7 +7,7 @@ import { useModal } from "@/components/providers/ModalProvider";
 export default function SaveTheDate() {
   const { openRSVP } = useModal();
   return (
-    <section className="py-16 relative overflow-hidden">
+    <section id="date" className="py-16 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
@@ -16,7 +16,7 @@ export default function SaveTheDate() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image on the left */}
           <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-br from-gold/20 to-royal-blue/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+            <div className="absolute -inset-4 bg-linear-to-br from-gold/20 to-royal-blue/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
             <div className="relative h-[320px] md:h-[380px] rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/couple.jpg"
@@ -24,7 +24,7 @@ export default function SaveTheDate() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent" />
             </div>
             {/* Decorative corner accents */}
             <div className="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-gold" />
@@ -35,11 +35,11 @@ export default function SaveTheDate() {
           <div className="text-center md:text-left space-y-8">
             {/* Decorative line */}
             <div className="flex items-center justify-center md:justify-start gap-4">
-              <div className="w-12 h-[2px] bg-gradient-to-r from-transparent to-gold" />
+              <div className="w-12 h-[2px] bg-linear-to-r from-transparent to-gold" />
               <span className="text-xs uppercase tracking-[0.3em] text-stone-500 font-sans">
                 Réservez la date
               </span>
-              <div className="w-12 h-[2px] bg-gradient-to-l from-transparent to-gold md:hidden" />
+              <div className="w-12 h-[2px] bg-linear-to-l from-transparent to-gold md:hidden" />
             </div>
 
             <h2 className="text-5xl md:text-6xl font-serif text-gold tracking-tight leading-tight">

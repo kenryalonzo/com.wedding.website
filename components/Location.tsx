@@ -3,10 +3,7 @@ import { MapPin } from "lucide-react";
 
 export default function Location() {
   return (
-    <section
-      id="details"
-      className="py-24 relative overflow-hidden bg-white/50"
-    >
+    <section id="infos" className="py-24 relative overflow-hidden bg-white/50">
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column: Artistic Image */}

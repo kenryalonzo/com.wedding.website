@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 };
 
 import { ModalProvider } from "@/components/providers/ModalProvider";
+import { LanguageProvider } from "@/components/providers/LanguageContext";
 import RSVPModal from "@/components/RSVPModal";
 
 // ... imports remain the same
@@ -43,10 +44,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${cinzel.variable} ${playfair.variable} antialiased`}
       >
-        <ModalProvider>
-          {children}
-          <RSVPModal />
-        </ModalProvider>
+        <LanguageProvider>
+          <ModalProvider>
+            {children}
+            <RSVPModal />
+          </ModalProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
