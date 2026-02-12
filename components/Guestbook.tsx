@@ -10,29 +10,54 @@ export default function Guestbook({ messages }: GuestbookProps) {
   if (messages.length === 0) return null;
 
   return (
-    <section id="guestbook" className="py-20 bg-stone-100">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <h2 className="text-3xl md:text-4xl font-serif text-royal-blue mb-12 text-center">
-          Livre d'Or
-        </h2>
+    <section id="guestbook" className="py-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+        <div className="text-center mb-16">
+          <span className="text-gold uppercase tracking-[0.2em] text-sm font-sans mb-3 block">
+            Vos mots doux
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-6 relative inline-block">
+            Livre d'Or
+            {/* Decorative underline */}
+            <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-[1px] bg-gold" />
+          </h2>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {messages.map((msg) => (
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+          {messages.map((msg, index) => (
             <div
               key={msg.id}
-              className="bg-white p-6 rounded-lg shadow-sm border border-stone-200"
+              className="break-inside-avoid bg-white p-8 rounded-sm shadow-sm border border-stone-100 relative group hover:shadow-md transition-shadow duration-300"
             >
-              <p className="text-stone-600 italic mb-4">"{msg.content}"</p>
-              <div className="flex justify-between items-center text-sm">
-                <span className="font-bold text-gold">{msg.name}</span>
-                <span className="text-stone-400">
-                  {format(new Date(msg.createdAt), "d MMMM yyyy", {
+              {/* Pin or Tape effect could go here */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-3 w-2 h-2 rounded-full bg-gold/20" />
+
+              <blockquote className="font-serif italic text-stone-600 leading-relaxed text-lg mb-6 relative">
+                <span className="absolute -top-4 -left-2 text-6xl text-gold/10 font-serif">
+                  “
+                </span>
+                {msg.content}
+              </blockquote>
+
+              <div className="flex items-center justify-between border-t border-stone-100 pt-4">
+                <span className="font-sans font-bold text-sm uppercase tracking-wide text-gold">
+                  {msg.name}
+                </span>
+                <span className="text-xs text-stone-400 font-mono">
+                  {format(new Date(msg.createdAt), "d MMM yyyy", {
                     locale: fr,
                   })}
                 </span>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Empty state or invitation to add */}
+        <div className="text-center mt-12">
+          <p className="text-stone-500 italic font-serif">
+            Merci pour vos vœux de bonheur
+          </p>
         </div>
       </div>
     </section>

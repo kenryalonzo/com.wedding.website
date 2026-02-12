@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useModal } from "@/components/providers/ModalProvider";
 
 export default function SaveTheDate() {
+  const { openRSVP } = useModal();
   return (
     <section className="py-16 relative overflow-hidden">
       {/* Decorative background elements */}
@@ -55,9 +59,9 @@ export default function SaveTheDate() {
             </div>
 
             <div className="pt-4">
-              <Link
-                href="#rsvp"
-                className="group inline-flex items-center gap-3 bg-gold hover:bg-[#e08a00] text-white font-sans uppercase tracking-[0.2em] px-10 py-5 rounded-sm transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+              <button
+                onClick={openRSVP}
+                className="group inline-flex items-center gap-3 bg-gold hover:bg-[#e08a00] text-white font-sans uppercase tracking-[0.2em] px-10 py-5 rounded-sm transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 cursor-pointer"
               >
                 <span>RSVP</span>
                 <svg
@@ -73,7 +77,7 @@ export default function SaveTheDate() {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </Link>
+              </button>
             </div>
 
             {/* Decorative quote */}

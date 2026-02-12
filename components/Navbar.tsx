@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useModal } from "@/components/providers/ModalProvider";
 
 export default function Navbar() {
+  const { openRSVP } = useModal();
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
       <div className="text-2xl font-serif text-gold font-bold tracking-tight">
@@ -21,12 +26,12 @@ export default function Navbar() {
           Livre d'Or
         </Link>
       </div>
-      <Link
-        href="#rsvp"
-        className="bg-gold text-white px-6 py-2 rounded-full font-serif text-sm tracking-wide hover:bg-yellow-600 transition-colors shadow-md"
+      <button
+        onClick={openRSVP}
+        className="bg-gold text-white px-6 py-2 rounded-full font-serif text-sm tracking-wide hover:bg-yellow-600 transition-colors shadow-md cursor-pointer"
       >
         Réserver
-      </Link>
+      </button>
     </nav>
   );
 }
