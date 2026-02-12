@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Story from "@/components/Story";
 import Countdown from "@/components/Countdown";
+import SaveTheDate from "@/components/SaveTheDate";
 import Location from "@/components/Location";
 import Donation from "@/components/Donation";
 import RSVPForm from "@/components/RSVPForm";
@@ -18,9 +19,10 @@ export default async function Home() {
     <main className="min-h-screen bg-white text-stone-800 font-sans selection:bg-gold selection:text-white">
       <Navbar />
       <Hero>
-        <Story />
         <Countdown />
+        <Story />
       </Hero>
+      <SaveTheDate />
       <Location />
 
       <section id="rsvp" className="py-20 bg-stone-50">

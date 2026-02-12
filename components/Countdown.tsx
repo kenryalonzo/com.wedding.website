@@ -37,48 +37,50 @@ export default function Countdown() {
   if (!timeLeft) return null; // Prevent hydration mismatch
 
   return (
-    <div className="w-full max-w-2xl mx-auto text-white">
-      <div className="grid grid-cols-4 gap-6 md:gap-12">
-        <div className="flex flex-col items-center">
-          <span className="text-3xl md:text-5xl font-serif font-light drop-shadow-md">
-            {timeLeft.days}
-          </span>
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] mt-2 text-white/90">
-            Jours
-          </span>
-        </div>
-        <div className="flex flex-col items-center relative">
-          <span className="hidden md:block absolute -left-6 top-2 text-2xl font-serif text-gold/50">
-            :
-          </span>
-          <span className="text-3xl md:text-5xl font-serif font-light drop-shadow-md">
-            {timeLeft.hours}
-          </span>
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] mt-2 text-white/90">
-            Heures
-          </span>
-        </div>
-        <div className="flex flex-col items-center relative">
-          <span className="hidden md:block absolute -left-6 top-2 text-2xl font-serif text-gold/50">
-            :
-          </span>
-          <span className="text-3xl md:text-5xl font-serif font-light drop-shadow-md">
-            {timeLeft.minutes}
-          </span>
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] mt-2 text-white/90">
-            Minutes
-          </span>
-        </div>
-        <div className="flex flex-col items-center relative">
-          <span className="hidden md:block absolute -left-6 top-2 text-2xl font-serif text-gold/50">
-            :
-          </span>
-          <span className="text-3xl md:text-5xl font-serif font-light drop-shadow-md">
-            {timeLeft.seconds}
-          </span>
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] mt-2 text-white/90">
-            Secondes
-          </span>
+    <div className="w-full max-w-md mx-auto">
+      <div className="bg-black/20 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/10">
+        <div className="grid grid-cols-4 gap-3 md:gap-6">
+          <div className="flex flex-col items-center">
+            <span className="text-2xl md:text-3xl font-serif font-light text-white drop-shadow-lg">
+              {timeLeft.days}
+            </span>
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
+              Jours
+            </span>
+          </div>
+          <div className="flex flex-col items-center relative">
+            <span className="hidden md:block absolute -left-3 top-1 text-lg font-serif text-gold/40">
+              :
+            </span>
+            <span className="text-2xl md:text-3xl font-serif font-light text-white drop-shadow-lg">
+              {timeLeft.hours}
+            </span>
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
+              Heures
+            </span>
+          </div>
+          <div className="flex flex-col items-center relative">
+            <span className="hidden md:block absolute -left-3 top-1 text-lg font-serif text-gold/40">
+              :
+            </span>
+            <span className="text-2xl md:text-3xl font-serif font-light text-white drop-shadow-lg">
+              {timeLeft.minutes}
+            </span>
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
+              Min
+            </span>
+          </div>
+          <div className="flex flex-col items-center relative">
+            <span className="hidden md:block absolute -left-3 top-1 text-lg font-serif text-gold/40">
+              :
+            </span>
+            <span className="text-2xl md:text-3xl font-serif font-light text-white drop-shadow-lg">
+              {timeLeft.seconds}
+            </span>
+            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
+              Sec
+            </span>
+          </div>
         </div>
       </div>
     </div>

@@ -13,14 +13,14 @@ export default function Story() {
           Vase d'Or
         </h3>
 
-        <blockquote className="text-base md:text-lg font-serif text-stone-700 italic leading-relaxed mb-4 text-center">
+        <blockquote className="text-base md:text-lg [font-family:var(--font-playfair)] text-stone-700 italic leading-relaxed mb-4 text-center">
           "Si donc quelqu'un se conserve pur, en s'abstenant de ces choses, il
           sera un vase d'honneur, sanctifié, utile à son maître, propre à toute
           bonne œuvre."
         </blockquote>
 
         <cite className="block text-right text-royal-blue font-bold not-italic text-sm">
-          — 2 Timothée 2:21
+          — 2 Timothée 2:21 —
         </cite>
       </div>
     </div>
