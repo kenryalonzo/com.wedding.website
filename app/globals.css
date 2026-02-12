@@ -8,8 +8,11 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gold: #f39b15;
+  --color-royal-blue: #003791;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cinzel);
 }
 
 @media (prefers-color-scheme: dark) {
