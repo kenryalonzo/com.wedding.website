@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Story from "@/components/Story";
 import Countdown from "@/components/Countdown";
 import SaveTheDate from "@/components/SaveTheDate";
+import OurStory from "@/components/OurStory";
 import Location from "@/components/Location";
 import Donation from "@/components/Donation";
 import RSVPForm from "@/components/RSVPForm";
@@ -23,6 +24,7 @@ export default async function Home() {
         <Story />
       </Hero>
       <SaveTheDate />
+      <OurStory />
       <Location />
 
       <section id="rsvp" className="py-20 bg-stone-50">
