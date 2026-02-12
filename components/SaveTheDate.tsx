@@ -3,10 +3,10 @@ import Link from "next/link";
 
 export default function SaveTheDate() {
   return (
-    <section className="py-16 bg-gradient-to-b from-stone-50 to-white relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-b from-[#e6f0ff] to-[#d4e5ff] relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-royal-blue/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -38,7 +38,7 @@ export default function SaveTheDate() {
               <div className="w-12 h-[2px] bg-gradient-to-l from-transparent to-gold md:hidden" />
             </div>
 
-            <h2 className="text-5xl md:text-6xl font-serif text-royal-blue tracking-tight leading-tight">
+            <h2 className="text-5xl md:text-6xl font-serif text-gold tracking-tight leading-tight">
               Save the
               <span className="block text-gold italic mt-2">Date</span>
             </h2>
@@ -57,7 +57,7 @@ export default function SaveTheDate() {
             <div className="pt-4">
               <Link
                 href="#rsvp"
-                className="group inline-flex items-center gap-3 bg-royal-blue hover:bg-gold text-white font-sans uppercase tracking-[0.2em] px-10 py-5 rounded-sm transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
+                className="group inline-flex items-center gap-3 bg-gold hover:bg-[#e08a00] text-white font-sans uppercase tracking-[0.2em] px-10 py-5 rounded-sm transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
               >
                 <span>RSVP</span>
                 <svg

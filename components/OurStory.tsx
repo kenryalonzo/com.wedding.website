@@ -1,10 +1,10 @@
 export default function OurStory() {
   return (
-    <section className="py-32 bg-gradient-to-b from-white via-stone-50 to-white relative overflow-hidden">
+    <section className="py-32 bg-gradient-to-b from-[#e6f0ff] via-[#d4e5ff] to-[#e6f0ff] relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-royal-blue/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 max-w-5xl relative z-10">
@@ -18,7 +18,7 @@ export default function OurStory() {
               </span>
               <div className="w-16 h-px bg-gradient-to-l from-transparent to-gold" />
             </div>
-            <h2 className="text-5xl md:text-6xl font-serif text-royal-blue mb-4">
+            <h2 className="text-5xl md:text-6xl font-serif text-gold mb-4">
               Une Histoire d'Amour
             </h2>
             <p className="text-lg text-stone-600 italic [font-family:var(--font-playfair)]">
@@ -30,7 +30,7 @@ export default function OurStory() {
         {/* Story Timeline - Vertical with alternating sides */}
         <div className="relative">
           {/* Center line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold via-royal-blue to-gold hidden md:block" />
+          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-gold via-[#e08a00] to-gold hidden md:block" />
 
           <div className="space-y-16 md:space-y-24">
             {/* Chapter 1 - Left side */}
@@ -44,7 +44,7 @@ export default function OurStory() {
                     </span>
                   </div>
                   <div className="bg-white p-8 rounded-2xl shadow-xl border border-gold/20 max-w-md hover:shadow-2xl transition-shadow duration-300">
-                    <h3 className="text-2xl font-serif text-royal-blue mb-4">
+                    <h3 className="text-2xl font-serif text-gold mb-4">
                       Le Début
                     </h3>
                     <p className="text-stone-700 leading-relaxed [font-family:var(--font-playfair)] italic">
@@ -64,12 +64,12 @@ export default function OurStory() {
               <div className="order-1" />
               <div className="space-y-4 order-2">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-3 h-3 rounded-full bg-royal-blue shadow-lg" />
-                  <span className="text-sm font-sans uppercase tracking-wider text-royal-blue">
+                  <div className="w-3 h-3 rounded-full bg-gold shadow-lg" />
+                  <span className="text-sm font-sans uppercase tracking-wider text-gold">
                     L'Amour Grandit
                   </span>
                 </div>
-                <div className="bg-white p-8 rounded-2xl shadow-xl border border-royal-blue/20 max-w-md hover:shadow-2xl transition-shadow duration-300">
+                <div className="bg-white p-8 rounded-2xl shadow-xl border border-gold/20 max-w-md hover:shadow-2xl transition-shadow duration-300">
                   <h3 className="text-2xl font-serif text-gold mb-4">
                     La Connexion
                   </h3>
@@ -94,7 +94,7 @@ export default function OurStory() {
                     </span>
                   </div>
                   <div className="bg-white p-8 rounded-2xl shadow-xl border border-gold/20 max-w-md hover:shadow-2xl transition-shadow duration-300">
-                    <h3 className="text-2xl font-serif text-royal-blue mb-4">
+                    <h3 className="text-2xl font-serif text-gold mb-4">
                       La Promesse
                     </h3>
                     <p className="text-stone-700 leading-relaxed [font-family:var(--font-playfair)] italic">
@@ -114,12 +114,12 @@ export default function OurStory() {
               <div className="order-1" />
               <div className="space-y-4 order-2">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-3 h-3 rounded-full bg-royal-blue shadow-lg" />
-                  <span className="text-sm font-sans uppercase tracking-wider text-royal-blue">
+                  <div className="w-3 h-3 rounded-full bg-gold shadow-lg" />
+                  <span className="text-sm font-sans uppercase tracking-wider text-gold">
                     Notre Avenir
                   </span>
                 </div>
-                <div className="bg-white p-8 rounded-2xl shadow-xl border border-royal-blue/20 max-w-md hover:shadow-2xl transition-shadow duration-300">
+                <div className="bg-white p-8 rounded-2xl shadow-xl border border-gold/20 max-w-md hover:shadow-2xl transition-shadow duration-300">
                   <h3 className="text-2xl font-serif text-gold mb-4">
                     Le Mariage
                   </h3>
@@ -138,7 +138,7 @@ export default function OurStory() {
           <div className="flex justify-center mt-20">
             <div className="relative">
               <div className="absolute inset-0 bg-gold/20 blur-xl rounded-full" />
-              <div className="relative bg-gradient-to-br from-gold to-royal-blue p-6 rounded-full shadow-2xl">
+              <div className="relative bg-gradient-to-br from-gold to-[#e08a00] p-6 rounded-full shadow-2xl">
                 <svg
                   className="w-8 h-8 text-white"
                   fill="currentColor"

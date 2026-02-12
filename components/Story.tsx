@@ -5,7 +5,7 @@ export default function Story() {
         <div className="absolute -top-3 -left-3 w-12 h-12 border-t border-l border-gold" />
         <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b border-r border-gold" />
 
-        <h2 className="text-2xl md:text-3xl font-serif text-royal-blue mb-6 tracking-wide text-center">
+        <h2 className="text-2xl md:text-3xl font-serif text-gold mb-6 tracking-wide text-center">
           Notre Thème
         </h2>
 
@@ -19,7 +19,7 @@ export default function Story() {
           bonne œuvre."
         </blockquote>
 
-        <cite className="block text-right text-royal-blue font-bold not-italic text-sm">
+        <cite className="block text-right text-gold font-bold not-italic text-sm">
           — 2 Timothée 2:21 —
         </cite>
       </div>

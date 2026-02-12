@@ -17,7 +17,7 @@ export default async function Home() {
   const messages = await getMessages();
 
   return (
-    <main className="min-h-screen bg-white text-stone-800 font-sans selection:bg-gold selection:text-white">
+    <main className="min-h-screen bg-[#e6f0ff] text-stone-800 font-sans selection:bg-gold selection:text-white">
       <Navbar />
       <Hero>
         <Countdown />
@@ -27,15 +27,14 @@ export default async function Home() {
       <OurStory />
       <Location />
 
-      <section id="rsvp" className="py-20 bg-stone-50">
+      <section id="rsvp" className="py-20 bg-[#e6f0ff]">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-serif text-royal-blue mb-4">
+          <h2 className="text-3xl md:text-4xl font-serif text-gold mb-4">
             Répondez S'il Vous Plaît
           </h2>
           <p className="text-stone-600 mb-12 max-w-2xl mx-auto">
             Nous serions honorés de votre présence. Veuillez confirmer votre
-            venue avant le{" "}
-            <strong className="text-royal-blue">30 Mars 2026</strong>.
+            venue avant le <strong className="text-gold">30 Mars 2026</strong>.
           </p>
           <RSVPForm />
         </div>

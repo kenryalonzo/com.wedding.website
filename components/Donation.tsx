@@ -2,9 +2,9 @@ import { CreditCard, Wallet } from "lucide-react";
 
 export default function Donation() {
   return (
-    <section id="donation" className="py-20 bg-stone-50">
+    <section id="donation" className="py-20 bg-[#e6f0ff]">
       <div className="container mx-auto px-4 max-w-4xl text-center">
-        <h2 className="text-3xl md:text-4xl font-serif text-royal-blue mb-6">
+        <h2 className="text-3xl md:text-4xl font-serif text-gold mb-6">
           Liste de Mariage
         </h2>
         <p className="text-stone-600 mb-12 max-w-2xl mx-auto">
@@ -16,7 +16,7 @@ export default function Donation() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* PayPal */}
           <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-gold hover:shadow-xl transition-shadow">
-            <Wallet className="w-12 h-12 text-royal-blue mx-auto mb-4" />
+            <Wallet className="w-12 h-12 text-gold mx-auto mb-4" />
             <h3 className="text-xl font-bold font-serif text-stone-800 mb-2">
               PayPal
             </h3>
@@ -27,7 +27,7 @@ export default function Donation() {
               href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Kamsicedric@gmail.com&item_name=Mariage+Cedric+et+Karelle&currency_code=EUR"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-[#0070BA] text-white px-6 py-3 rounded-full font-bold hover:bg-[#005ea6] transition-colors"
+              className="inline-block bg-gold text-white px-6 py-3 rounded-full font-bold hover:bg-[#e08a00] transition-colors"
             >
               Faire un don via PayPal
             </a>
@@ -37,7 +37,7 @@ export default function Donation() {
           </div>
 
           {/* Bank Transfer */}
-          <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-royal-blue hover:shadow-xl transition-shadow">
+          <div className="bg-white p-8 rounded-lg shadow-md border-t-4 border-gold hover:shadow-xl transition-shadow">
             <CreditCard className="w-12 h-12 text-gold mx-auto mb-4" />
             <h3 className="text-xl font-bold font-serif text-stone-800 mb-2">
               Virement Bancaire

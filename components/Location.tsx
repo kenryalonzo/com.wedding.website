@@ -3,9 +3,9 @@ import { MapPin } from "lucide-react";
 
 export default function Location() {
   return (
-    <section id="details" className="py-20 bg-white text-center">
+    <section id="details" className="py-20 bg-[#e6f0ff] text-center">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-serif text-royal-blue mb-12">
+        <h2 className="text-3xl md:text-4xl font-serif text-gold mb-12">
           Le Lieu
         </h2>
 
@@ -29,7 +29,7 @@ export default function Location() {
               <Link
                 href="https://www.google.com/maps/search/?api=1&query=Rathausplatz+2,27749+Delmenhorst"
                 target="_blank"
-                className="inline-block mt-4 text-royal-blue hover:text-gold underline underline-offset-4 transition-colors"
+                className="inline-block mt-4 text-gold hover:text-[#e08a00] underline underline-offset-4 transition-colors"
               >
                 Voir sur Google Maps
               </Link>

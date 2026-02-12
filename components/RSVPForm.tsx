@@ -89,7 +89,7 @@ export default function RSVPForm() {
           <input
             {...form.register("name")}
             className={cn(
-              "w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-royal-blue focus:border-royal-blue outline-none transition-all",
+              "w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all",
               form.formState.errors.name
                 ? "border-red-500"
                 : "border-stone-300",
@@ -111,7 +111,7 @@ export default function RSVPForm() {
             {...form.register("email")}
             type="email"
             className={cn(
-              "w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-royal-blue focus:border-royal-blue outline-none transition-all",
+              "w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all",
               form.formState.errors.email
                 ? "border-red-500"
                 : "border-stone-300",
@@ -135,7 +135,7 @@ export default function RSVPForm() {
             min="1"
             max="10"
             className={cn(
-              "w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-royal-blue focus:border-royal-blue outline-none transition-all",
+              "w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all",
               form.formState.errors.count
                 ? "border-red-500"
                 : "border-stone-300",
@@ -155,7 +155,7 @@ export default function RSVPForm() {
           <textarea
             {...form.register("wishes")}
             rows={4}
-            className="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-royal-blue focus:border-royal-blue outline-none transition-all"
+            className="w-full px-4 py-2 border border-stone-300 rounded-md focus:ring-2 focus:ring-gold focus:border-gold outline-none transition-all"
             placeholder="Laissez un message aux mariés..."
           />
         </div>
@@ -170,7 +170,7 @@ export default function RSVPForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-royal-blue text-white py-3 rounded-md font-serif font-bold tracking-wide hover:bg-[#002a70] transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+          className="w-full bg-gold text-white py-3 rounded-md font-serif font-bold tracking-wide hover:bg-[#e08a00] transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
         >
           {isSubmitting ? (
             <>

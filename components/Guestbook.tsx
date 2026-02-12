@@ -24,7 +24,7 @@ export default function Guestbook({ messages }: GuestbookProps) {
             >
               <p className="text-stone-600 italic mb-4">"{msg.content}"</p>
               <div className="flex justify-between items-center text-sm">
-                <span className="font-bold text-royal-blue">{msg.name}</span>
+                <span className="font-bold text-gold">{msg.name}</span>
                 <span className="text-stone-400">
                   {format(new Date(msg.createdAt), "d MMMM yyyy", {
                     locale: fr,

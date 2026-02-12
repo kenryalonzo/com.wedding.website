@@ -17,7 +17,7 @@ export default function Hero({ children }: HeroProps) {
           className="object-cover opacity-90"
           priority
         />
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-blue-100/20" />
       </div>
 
       <div className="relative z-10 w-full flex flex-col items-center justify-center gap-12 px-4">
