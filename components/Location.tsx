@@ -38,7 +38,7 @@ export default function Location() {
               <p className="text-stone-600 leading-relaxed text-lg">
                 Nous avons choisi ce lieu emblématique pour célébrer notre
                 union. Un cadre majestueux au cœur de Delmenhorst, facile
-                d'accès et proche de toutes commodités.
+                d&apos;accès et proche de toutes commodités.
               </p>
             </div>
 

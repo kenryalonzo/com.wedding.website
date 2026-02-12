@@ -27,7 +27,7 @@ export async function submitRSVP(values: z.infer<typeof formSchema>) {
     }
 
     // Create Guest
-    const guest = await prisma.guest.create({
+    await prisma.guest.create({
       data: {
         name: validatedFields.name,
         email: validatedFields.email,
@@ -62,7 +62,7 @@ export async function getMessages() {
     return await prisma.message.findMany({
       orderBy: { createdAt: "desc" },
     });
-  } catch (error) {
+  } catch (_error) {
     return [];
   }
 }

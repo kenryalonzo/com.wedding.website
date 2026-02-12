@@ -164,7 +164,7 @@ export default function RSVPModal() {
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-stone-700">
-                    Un petit mot pour le livre d'or ?
+                    Un petit mot pour le livre d&apos;or ?
                   </label>
                   <textarea
                     value={rsvp.message}

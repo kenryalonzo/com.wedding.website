@@ -19,7 +19,7 @@ export default function OurStory() {
               <div className="w-16 h-px bg-linear-to-l from-transparent to-gold" />
             </div>
             <h2 className="text-5xl md:text-6xl font-serif text-gold mb-4">
-              Une Histoire d'Amour
+              Une Histoire d&apos;Amour
             </h2>
             <p className="text-lg text-stone-600 italic [font-family:var(--font-playfair)]">
               Deux cœurs, un chemin, une destinée
@@ -66,7 +66,7 @@ export default function OurStory() {
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-3 h-3 rounded-full bg-gold shadow-lg" />
                   <span className="text-sm font-sans uppercase tracking-wider text-gold">
-                    L'Amour Grandit
+                    L&apos;Amour Grandit
                   </span>
                 </div>
                 <div className="bg-white p-8 rounded-2xl shadow-xl border border-gold/20 max-w-md hover:shadow-2xl transition-shadow duration-300">
@@ -74,10 +74,10 @@ export default function OurStory() {
                     La Connexion
                   </h3>
                   <p className="text-stone-700 leading-relaxed [font-family:var(--font-playfair)] italic">
-                    Jour après jour, notre amitié s'est transformée en quelque
-                    chose de plus profond. Nous avons découvert en l'autre un
-                    partenaire, un confident, et une âme sœur avec qui partager
-                    nos rêves et notre foi.
+                    Jour après jour, notre amitié s&apos;est transformée en
+                    quelque chose de plus profond. Nous avons découvert en
+                    l&apos;autre un partenaire, un confident, et une âme sœur
+                    avec qui partager nos rêves et notre foi.
                   </p>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function OurStory() {
                   <div className="flex items-center gap-3 mb-3 md:flex-row-reverse">
                     <div className="w-3 h-3 rounded-full bg-gold shadow-lg" />
                     <span className="text-sm font-sans uppercase tracking-wider text-gold">
-                      L'Engagement
+                      L&apos;Engagement
                     </span>
                   </div>
                   <div className="bg-white p-8 rounded-2xl shadow-xl border border-gold/20 max-w-md hover:shadow-2xl transition-shadow duration-300">
@@ -99,9 +99,9 @@ export default function OurStory() {
                     </h3>
                     <p className="text-stone-700 leading-relaxed [font-family:var(--font-playfair)] italic">
                       Sous le regard de Dieu, nous avons choisi de nous engager
-                      l'un envers l'autre. Une promesse d'amour éternel, de
-                      soutien mutuel, et de marcher ensemble sur le chemin que
-                      le Seigneur a tracé pour nous.
+                      l&apos;un envers l&apos;autre. Une promesse d&apos;amour
+                      éternel, de soutien mutuel, et de marcher ensemble sur le
+                      chemin que le Seigneur a tracé pour nous.
                     </p>
                   </div>
                 </div>
@@ -124,10 +124,10 @@ export default function OurStory() {
                     Le Mariage
                   </h3>
                   <p className="text-stone-700 leading-relaxed [font-family:var(--font-playfair)] italic">
-                    Aujourd'hui, nous célébrons notre union devant Dieu, notre
-                    famille et nos amis. C'est le début d'une nouvelle aventure,
-                    remplie d'amour, de grâce et de bénédictions. Ensemble, pour
-                    toujours.
+                    Aujourd&apos;hui, nous célébrons notre union devant Dieu,
+                    notre famille et nos amis. C&apos;est le début d&apos;une
+                    nouvelle aventure, remplie d'amour, de grâce et de
+                    bénédictions. Ensemble, pour toujours.
                   </p>
                 </div>
               </div>

@@ -83,7 +83,7 @@ export default function SaveTheDate() {
             {/* Decorative quote */}
             <div className="pt-8 border-t border-stone-200 mt-8">
               <p className="text-sm text-stone-500 italic font-serif">
-                "Nous serions honorés de célébrer ce jour avec vous"
+                &quot;Nous serions honorés de célébrer ce jour avec vous&quot;
               </p>
             </div>
           </div>

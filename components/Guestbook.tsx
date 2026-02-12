@@ -17,7 +17,7 @@ export default function Guestbook({ messages }: GuestbookProps) {
             Vos mots doux
           </span>
           <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-6 relative inline-block">
-            Livre d'Or
+            Livre d&apos;Or
             {/* Decorative underline */}
             <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-[1px] bg-gold" />
           </h2>

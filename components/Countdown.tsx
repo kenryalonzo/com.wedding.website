@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { differenceInSeconds } from "date-fns";
 
 export default function Countdown() {
-  const WEDDING_DATE = new Date("2026-05-02T12:00:00"); // Adjust time as needed
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
     hours: number;
@@ -13,6 +12,7 @@ export default function Countdown() {
   } | null>(null);
 
   useEffect(() => {
+    const WEDDING_DATE = new Date("2026-05-02T12:00:00"); // Adjust time as needed
     const timer = setInterval(() => {
       const now = new Date();
       const diff = differenceInSeconds(WEDDING_DATE, now);

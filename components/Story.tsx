@@ -10,13 +10,13 @@ export default function Story() {
         </h2>
 
         <h3 className="text-lg font-sans font-semibold text-gold mb-4 uppercase tracking-wider text-center">
-          Vase d'Or
+          Vase d&apos;Or
         </h3>
 
         <blockquote className="text-base md:text-lg [font-family:var(--font-playfair)] text-stone-700 italic leading-relaxed mb-4 text-center">
-          "Si donc quelqu'un se conserve pur, en s'abstenant de ces choses, il
-          sera un vase d'honneur, sanctifié, utile à son maître, propre à toute
-          bonne œuvre."
+          &quot;Si donc quelqu&apos;un se conserve pur, en s&apos;abstenant de
+          ces choses, il sera un vase d&apos;honneur, sanctifié, utile à son
+          maître, propre à toute bonne œuvre.&quot;
         </blockquote>
 
         <cite className="block text-right text-gold font-bold not-italic text-sm">

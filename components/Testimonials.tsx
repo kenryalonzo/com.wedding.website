@@ -44,9 +44,10 @@ export default function Testimonials() {
 
                 <blockquote className="text-base md:text-lg [font-family:var(--font-playfair)] text-stone-700 italic leading-relaxed mb-6">
                   Karelle est la lumière qui illumine mes journées. Son sourire,
-                  sa douceur et sa foi inébranlable m'inspirent chaque jour.
-                  Avec elle, j'ai trouvé non seulement une partenaire, mais une
-                  âme sœur avec qui bâtir un avenir rempli d'amour et de grâce.
+                  sa douceur et sa foi inébranlable m&apos;inspirent chaque
+                  jour. Avec elle, j&apos;ai trouvé non seulement une
+                  partenaire, mais une âme sœur avec qui bâtir un avenir rempli
+                  d&apos;amour et de grâce.
                 </blockquote>
 
                 <div className="flex items-center gap-2 text-sm text-stone-500">
@@ -81,7 +82,7 @@ export default function Testimonials() {
                   Cédric est mon roc, mon confident et mon meilleur ami. Sa
                   gentillesse, sa sagesse et son amour inconditionnel me font me
                   sentir bénie chaque jour. Ensemble, nous marchons vers un
-                  avenir où l'amour de Dieu guide nos pas.
+                  avenir où l&apos;amour de Dieu guide nos pas.
                 </blockquote>
 
                 <div className="flex items-center gap-2 text-sm text-stone-500">

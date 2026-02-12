@@ -26,9 +26,9 @@ export default function Donation() {
               Liste de Mariage
             </h2>
             <p className="text-stone-600 max-w-2xl mx-auto leading-relaxed italic [font-family:var(--font-playfair)] text-lg">
-              "Votre présence est notre plus beau cadeau.{" "}
+              &quot;Votre présence est notre plus beau cadeau.{" "}
               <br className="hidden md:block" /> Si vous souhaitez participer à
-              notre nouvelle vie..."
+              notre nouvelle vie...&quot;
             </p>
           </div>
 
