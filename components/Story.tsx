@@ -1,7 +1,7 @@
 export default function Story() {
   return (
     <div className="w-full max-w-lg mx-auto">
-      <div className="relative p-10 border border-gold/40 rounded-sm bg-white/95 backdrop-blur-sm shadow-2xl">
+      <div className="relative p-10 border border-gold/40 rounded-sm bg-[#e6f0ff]/95 backdrop-blur-sm shadow-2xl">
         <div className="absolute -top-3 -left-3 w-12 h-12 border-t border-l border-gold" />
         <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b border-r border-gold" />
 

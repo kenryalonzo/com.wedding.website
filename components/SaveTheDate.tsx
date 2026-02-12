@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function SaveTheDate() {
   return (
-    <section className="py-16 bg-gradient-to-b from-[#e6f0ff] to-[#d4e5ff] relative overflow-hidden">
+    <section className="py-16 relative overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />

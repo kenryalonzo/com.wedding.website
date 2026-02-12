@@ -1,10 +1,10 @@
 export default function OurStory() {
   return (
-    <section className="py-32 bg-gradient-to-b from-[#e6f0ff] via-[#d4e5ff] to-[#e6f0ff] relative overflow-hidden">
+    <section className="py-32 relative overflow-hidden">
       {/* Decorative background */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gold/15 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[100px]" />
       </div>
 
       <div className="container mx-auto px-4 max-w-5xl relative z-10">

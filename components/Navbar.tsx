@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#e6f0ff]/80 backdrop-blur-md border-b border-gold/10 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gold/10 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300">
       <div className="text-2xl font-serif text-gold font-bold tracking-tight">
         <Link href="/">C & K</Link>
       </div>

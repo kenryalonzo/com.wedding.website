@@ -9,6 +9,7 @@ import Donation from "@/components/Donation";
 import RSVPForm from "@/components/RSVPForm";
 import Guestbook from "@/components/Guestbook";
 import Footer from "@/components/Footer";
+import GoldenHalos from "@/components/GoldenHalos";
 import { getMessages } from "@/app/actions";
 
 export const dynamic = "force-dynamic";
@@ -17,7 +18,8 @@ export default async function Home() {
   const messages = await getMessages();
 
   return (
-    <main className="min-h-screen bg-[#e6f0ff] text-stone-800 font-sans selection:bg-gold selection:text-white">
+    <main className="min-h-screen bg-transparent text-stone-800 font-sans selection:bg-gold selection:text-white relative">
+      <GoldenHalos />
       <Navbar />
       <Hero>
         <Countdown />
@@ -25,9 +27,12 @@ export default async function Home() {
       </Hero>
       <SaveTheDate />
       <OurStory />
+
+      <Donation />
+
       <Location />
 
-      <section id="rsvp" className="py-20 bg-[#e6f0ff]">
+      <section id="rsvp" className="py-20 relative">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-serif text-gold mb-4">
             Répondez S'il Vous Plaît
@@ -40,7 +45,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <Donation />
       <Guestbook messages={messages} />
       <Footer />
     </main>
