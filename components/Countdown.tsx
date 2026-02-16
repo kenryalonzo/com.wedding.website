@@ -2,8 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { differenceInSeconds } from "date-fns";
+import { useLanguage } from "@/components/providers/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Countdown() {
+  const { language } = useLanguage();
+  const t = translations[language].countdown;
+
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
     hours: number;
@@ -12,7 +17,7 @@ export default function Countdown() {
   } | null>(null);
 
   useEffect(() => {
-    const WEDDING_DATE = new Date("2026-05-02T12:00:00"); // Adjust time as needed
+    const WEDDING_DATE = new Date("2026-05-02T12:00:00");
     const timer = setInterval(() => {
       const now = new Date();
       const diff = differenceInSeconds(WEDDING_DATE, now);
@@ -34,7 +39,7 @@ export default function Countdown() {
     return () => clearInterval(timer);
   }, []);
 
-  if (!timeLeft) return null; // Prevent hydration mismatch
+  if (!timeLeft) return null;
 
   return (
     <div className="w-full max-w-md mx-auto">
@@ -45,7 +50,7 @@ export default function Countdown() {
               {timeLeft.days}
             </span>
             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
-              Jours
+              {t.days}
             </span>
           </div>
           <div className="flex flex-col items-center relative">
@@ -56,7 +61,7 @@ export default function Countdown() {
               {timeLeft.hours}
             </span>
             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
-              Heures
+              {t.hours}
             </span>
           </div>
           <div className="flex flex-col items-center relative">
@@ -67,7 +72,7 @@ export default function Countdown() {
               {timeLeft.minutes}
             </span>
             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
-              Min
+              {t.minutes}
             </span>
           </div>
           <div className="flex flex-col items-center relative">
@@ -78,7 +83,7 @@ export default function Countdown() {
               {timeLeft.seconds}
             </span>
             <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
-              Sec
+              {t.seconds}
             </span>
           </div>
         </div>

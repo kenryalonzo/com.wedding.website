@@ -1,4 +1,12 @@
+"use client";
+
+import { useLanguage } from "@/components/providers/LanguageContext";
+import { translations } from "@/lib/translations";
+
 export default function Story() {
+  const { language } = useLanguage();
+  const t = translations[language].story;
+
   return (
     <div className="w-full max-w-lg mx-auto">
       <div className="relative p-10 border border-gold/40 rounded-sm bg-[#e6f0ff]/95 backdrop-blur-sm shadow-2xl">
@@ -6,21 +14,19 @@ export default function Story() {
         <div className="absolute -bottom-3 -right-3 w-12 h-12 border-b border-r border-gold" />
 
         <h2 className="text-2xl md:text-3xl font-serif text-gold mb-6 tracking-wide text-center">
-          Notre Thème
+          {t.title}
         </h2>
 
         <h3 className="text-lg font-sans font-semibold text-gold mb-4 uppercase tracking-wider text-center">
-          Vase d&apos;Or
+          {t.subtitle}
         </h3>
 
         <blockquote className="text-base md:text-lg [font-family:var(--font-playfair)] text-stone-700 italic leading-relaxed mb-4 text-center">
-          &quot;Si donc quelqu&apos;un se conserve pur, en s&apos;abstenant de
-          ces choses, il sera un vase d&apos;honneur, sanctifié, utile à son
-          maître, propre à toute bonne œuvre.&quot;
+          &quot;{t.verse}&quot;
         </blockquote>
 
         <cite className="block text-right text-gold font-bold not-italic text-sm">
-          — 2 Timothée 2:21 —
+          {t.verseRef}
         </cite>
       </div>
     </div>

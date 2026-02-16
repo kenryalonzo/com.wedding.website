@@ -1,11 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useModal } from "@/components/providers/ModalProvider";
+import { useLanguage } from "@/components/providers/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function SaveTheDate() {
   const { openRSVP } = useModal();
+  const { language } = useLanguage();
+  const t = translations[language].saveTheDate;
+
   return (
     <section id="date" className="py-16 relative overflow-hidden">
       {/* Decorative background elements */}
@@ -37,24 +41,24 @@ export default function SaveTheDate() {
             <div className="flex items-center justify-center md:justify-start gap-4">
               <div className="w-12 h-[2px] bg-linear-to-r from-transparent to-gold" />
               <span className="text-xs uppercase tracking-[0.3em] text-stone-500 font-sans">
-                Réservez la date
+                {t.label}
               </span>
               <div className="w-12 h-[2px] bg-linear-to-l from-transparent to-gold md:hidden" />
             </div>
 
             <h2 className="text-5xl md:text-6xl font-serif text-gold tracking-tight leading-tight">
-              Save the
-              <span className="block text-gold italic mt-2">Date</span>
+              {t.title1}
+              <span className="block text-gold italic mt-2">{t.title2}</span>
             </h2>
 
             <div className="space-y-4 py-6">
               <div className="inline-block px-8 py-4 bg-white rounded-lg shadow-lg border border-gold/20">
                 <p className="text-4xl md:text-5xl font-serif text-gold font-bold tracking-wide">
-                  2 Mai 2026
+                  {t.date}
                 </p>
               </div>
               <p className="text-xl text-stone-600 font-sans tracking-wide">
-                Delmenhorst, Allemagne
+                {t.location}
               </p>
             </div>
 
@@ -83,7 +87,7 @@ export default function SaveTheDate() {
             {/* Decorative quote */}
             <div className="pt-8 border-t border-stone-200 mt-8">
               <p className="text-sm text-stone-500 italic font-serif">
-                &quot;Nous serions honorés de célébrer ce jour avec vous&quot;
+                &quot;{t.quote}&quot;
               </p>
             </div>
           </div>

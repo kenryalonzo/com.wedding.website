@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import { MapPin } from "lucide-react";
+import { useLanguage } from "@/components/providers/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Location() {
+  const { language } = useLanguage();
+  const t = translations[language].location;
+
   return (
     <section id="infos" className="py-24 relative overflow-hidden bg-white/50">
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
@@ -12,14 +19,14 @@ export default function Location() {
             <div className="relative h-[600px] w-full rounded-t-[10rem] rounded-b-lg overflow-hidden shadow-2xl">
               <Image
                 src="/lieu.jpg"
-                alt="Lieu de la cérémonie"
+                alt={t.label}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
               <div className="absolute bottom-8 left-8 text-white">
                 <span className="block text-sm uppercase tracking-widest mb-2 font-light">
-                  Le Lieu
+                  {t.label}
                 </span>
                 <span className="block text-3xl font-serif">
                   Rathausplatz 2
@@ -32,13 +39,11 @@ export default function Location() {
           <div className="space-y-12">
             <div>
               <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-6">
-                Cérémonie & <br />{" "}
-                <span className="text-gold italic">Réception</span>
+                {t.title} <br />{" "}
+                <span className="text-gold italic">{t.titleHighlight}</span>
               </h2>
               <p className="text-stone-600 leading-relaxed text-lg">
-                Nous avons choisi ce lieu emblématique pour célébrer notre
-                union. Un cadre majestueux au cœur de Delmenhorst, facile
-                d&apos;accès et proche de toutes commodités.
+                {t.description}
               </p>
             </div>
 
@@ -61,7 +66,7 @@ export default function Location() {
               </div>
               <div>
                 <h3 className="font-serif font-bold text-stone-800 text-lg">
-                  Adresse complète
+                  {t.addressTitle}
                 </h3>
                 <p className="text-stone-500">
                   Rathausplatz 2, 27749 Delmenhorst

@@ -1,9 +1,14 @@
 "use client";
 
-import { CreditCard, Wallet, Copy, Check } from "lucide-react";
+import { Wallet, Copy, Check } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/components/providers/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Donation() {
+  const { language } = useLanguage();
+  const t = translations[language].donation;
+
   const [copied, setCopied] = useState(false);
   const iban = "DE34 2905 0101 0083 4930 49";
 
@@ -23,12 +28,10 @@ export default function Donation() {
 
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-serif text-gold mb-6 tracking-wide">
-              Liste de Mariage
+              {t.title}
             </h2>
             <p className="text-stone-600 max-w-2xl mx-auto leading-relaxed italic [font-family:var(--font-playfair)] text-lg">
-              &quot;Votre présence est notre plus beau cadeau.{" "}
-              <br className="hidden md:block" /> Si vous souhaitez participer à
-              notre nouvelle vie...&quot;
+              &quot;{t.subtitle}&quot;
             </p>
           </div>
 
@@ -42,7 +45,7 @@ export default function Donation() {
             {/* IBAN Section */}
             <div className="flex flex-col items-center text-center space-y-6">
               <span className="font-serif text-2xl text-stone-700">
-                Virement
+                {t.transfer}
               </span>
               <div className="flex flex-col space-y-2">
                 <span className="text-xs uppercase tracking-[0.2em] text-stone-400">
@@ -60,7 +63,7 @@ export default function Donation() {
                   )}
                   {copied && (
                     <span className="absolute -bottom-6 text-[10px] text-green-600 font-sans tracking-wide">
-                      Copié dans le presse-papier
+                      {t.copied}
                     </span>
                   )}
                 </button>
@@ -72,7 +75,7 @@ export default function Donation() {
             <div className="flex flex-col items-center text-center space-y-6">
               <span className="font-serif text-2xl text-stone-700">PayPal</span>
               <p className="text-stone-500 text-sm max-w-[200px]">
-                Rapide et sécurisé via Kamsicedric@gmail.com
+                {t.paypalDesc}
               </p>
               <a
                 href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Kamsicedric@gmail.com&item_name=Mariage+Cedric+et+Karelle&currency_code=EUR"
@@ -81,7 +84,7 @@ export default function Donation() {
                 className="inline-flex items-center gap-2 border border-gold text-gold hover:bg-gold hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-serif"
               >
                 <Wallet className="w-4 h-4" />
-                <span>Faire un don</span>
+                <span>{t.donate}</span>
               </a>
             </div>
           </div>

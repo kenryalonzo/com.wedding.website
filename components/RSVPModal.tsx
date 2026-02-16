@@ -4,10 +4,14 @@ import { X, Send, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { submitRSVP } from "@/app/actions";
 import { useModal } from "@/components/providers/ModalProvider";
+import { useLanguage } from "@/components/providers/LanguageContext";
+import { translations } from "@/lib/translations";
 import { cn } from "@/lib/utils";
 
 export default function RSVPModal() {
   const { isRSVPModalOpen: isOpen, closeRSVP: onClose } = useModal();
+  const { language } = useLanguage();
+  const t = translations[language].rsvp;
 
   const [rsvp, setRsvp] = useState({
     fullName: "",
@@ -60,14 +64,14 @@ export default function RSVPModal() {
       setIsSubmitting(false);
 
       if (!result.success) {
-        setErrorMessage(result.message || "Une erreur est survenue.");
+        setErrorMessage(result.message || t.errorGeneric);
         return;
       }
 
       setRsvpSubmitted(true);
-    } catch (e) {
+    } catch {
       setIsSubmitting(false);
-      setErrorMessage("Erreur de connexion.");
+      setErrorMessage(t.errorConnection);
     }
   };
 
@@ -97,11 +101,9 @@ export default function RSVPModal() {
               {/* Header */}
               <div className="mb-8 text-center">
                 <h2 className="font-serif text-3xl font-bold text-gold mb-2">
-                  Réservez votre place
+                  {t.title}
                 </h2>
-                <p className="text-stone-500 text-sm">
-                  Confirmez votre présence avant le 30 Mars 2026
-                </p>
+                <p className="text-stone-500 text-sm">{t.subtitle}</p>
               </div>
 
               {/* Form */}
@@ -114,7 +116,7 @@ export default function RSVPModal() {
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-stone-700">
-                    Nom complet
+                    {t.nameLabel}
                   </label>
                   <input
                     value={rsvp.fullName}
@@ -123,13 +125,13 @@ export default function RSVPModal() {
                     }
                     required
                     className="w-full h-11 rounded-lg border border-stone-300 bg-white px-4 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-1 focus:ring-gold"
-                    placeholder="Ex: Jean Dupont"
+                    placeholder={t.namePlaceholder}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-stone-700">
-                    Email
+                    {t.emailLabel}
                   </label>
                   <input
                     type="email"
@@ -139,13 +141,13 @@ export default function RSVPModal() {
                     }
                     required
                     className="w-full h-11 rounded-lg border border-stone-300 bg-white px-4 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-1 focus:ring-gold"
-                    placeholder="Ex: jean.dupont@email.com"
+                    placeholder={t.emailPlaceholder}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-stone-700">
-                    Nombre de personnes
+                    {t.countLabel}
                   </label>
                   <input
                     type="number"
@@ -164,7 +166,7 @@ export default function RSVPModal() {
 
                 <div className="space-y-2">
                   <label className="text-sm font-semibold text-stone-700">
-                    Un petit mot pour le livre d&apos;or ?
+                    {t.messageLabel}
                   </label>
                   <textarea
                     value={rsvp.message}
@@ -173,7 +175,7 @@ export default function RSVPModal() {
                     }
                     rows={4}
                     className="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-1 focus:ring-gold resize-none"
-                    placeholder="Vos félicitations..."
+                    placeholder={t.messagePlaceholder}
                   />
                 </div>
 
@@ -188,12 +190,12 @@ export default function RSVPModal() {
                   {isSubmitting ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      Envoi...
+                      {t.sending}
                     </>
                   ) : (
                     <>
                       <Send className="h-4 w-4" />
-                      Confirmer
+                      {t.confirm}
                     </>
                   )}
                 </button>
@@ -218,18 +220,17 @@ export default function RSVPModal() {
                 </svg>
               </div>
               <h3 className="font-serif text-3xl text-gold mb-4">
-                Merci {rsvp.fullName} !
+                {t.successTitle} {rsvp.fullName} !
               </h3>
               <p className="text-stone-600 mb-8 max-w-xs mx-auto">
-                Votre présence a bien été confirmée. Nous avons hâte de vous
-                voir !
+                {t.successMessage}
               </p>
 
               <button
                 onClick={onClose}
                 className="inline-flex items-center justify-center rounded-full border border-stone-300 bg-white px-8 py-3 text-sm font-semibold text-stone-700 shadow-sm transition-colors hover:bg-stone-50"
               >
-                Fermer
+                {t.close}
               </button>
             </div>
           )}
