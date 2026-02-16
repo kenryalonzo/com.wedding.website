@@ -131,7 +131,7 @@ export default function Header() {
         <div id="mobile-menu" className="md:hidden">
           <div
             className="fixed inset-0 z-[60]"
-            style={{ backgroundColor: "rgba(0,31,84,0.95)" }}
+            style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
             onClick={() => setIsMobileMenuOpen(false)}
           />
           <div

@@ -1,105 +1,168 @@
+"use client";
+
+import { Quote, Heart, Calendar, Info } from "lucide-react";
+import { useLanguage } from "@/components/providers/LanguageContext";
+import { translations } from "@/lib/translations";
+
 export default function Testimonials() {
+  const { language } = useLanguage();
+  const t = translations[language].testimonials;
+  const steps = t.steps;
+  const dc = t.dressCode;
+
   return (
-    <section className="py-32 bg-[#e6f0ff] relative overflow-hidden">
+    <section
+      id="story"
+      className="py-20 md:py-32 bg-[#fffcf5] relative overflow-hidden"
+    >
       {/* Decorative background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#e6f0ff] via-[#d4e5ff]/30 to-[#e6f0ff]" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-gold/5 via-transparent to-transparent opacity-70" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_var(--tw-gradient-stops))] from-blue-900/5 via-transparent to-transparent opacity-70" />
 
-      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      {/* Animated Particles/Blur */}
+      <div className="absolute top-1/4 left-10 w-64 h-64 bg-gold/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-1/3 right-10 w-96 h-96 bg-blue-900/5 rounded-full blur-3xl animate-pulse delay-1000" />
+
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-20">
-          <div className="inline-block">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-[1px] bg-gradient-to-r from-transparent to-gold" />
-              <span className="text-xs uppercase tracking-[0.3em] text-stone-500">
-                Nos Témoignages
-              </span>
-              <div className="w-16 h-[1px] bg-gradient-to-l from-transparent to-gold" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-serif text-gold">
-              Nos Cœurs Parlent
-            </h2>
-          </div>
+        <div className="text-center mb-16 md:mb-24">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-600 mb-6 relative inline-block">
+            <span className="relative z-10">{t.sectionTitle}</span>
+            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50" />
+          </h2>
+          <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-6 opacity-80" />
+          <p className="text-stone-500 italic font-serif text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+            {t.verse}
+            <span className="block mt-2 text-sm not-italic uppercase tracking-widest text-gold font-sans">
+              {t.verseRef}
+            </span>
+          </p>
         </div>
 
-        {/* Testimonials Cards */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          {/* Cédric's Testimonial */}
-          <div className="group relative">
-            {/* Decorative quote mark */}
-            <div className="absolute -top-6 -left-4 text-8xl text-gold/20 font-serif leading-none select-none">
-              "
-            </div>
+        {/* Timeline Items */}
+        <div className="space-y-16 md:space-y-32 relative">
+          {/* Vertical Line for Desktop */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent transform -translate-x-1/2" />
 
-            <div className="relative bg-gradient-to-br from-white to-stone-50/50 p-10 md:p-12 rounded-2xl shadow-xl border border-stone-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold/30 rounded-tl-2xl" />
-              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold/30 rounded-br-2xl" />
+          {steps.map((step, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div
+                key={step.id}
+                className={`flex flex-col md:flex-row gap-8 md:gap-16 items-center ${
+                  isEven ? "" : "md:flex-row-reverse"
+                }`}
+              >
+                {/* Icon Side */}
+                <div className="w-full md:w-1/2 flex justify-center md:justify-end items-center relative group">
+                  <div className="relative z-10 bg-white p-6 rounded-t-[10rem] rounded-b-[10rem] shadow-xl border border-gold/20 flex flex-col items-center justify-center text-center aspect-[3/4] w-full max-w-xs transition-transform duration-500 group-hover:scale-105 group-hover:shadow-2xl overflow-hidden">
+                    {/* Decorative bg inside card */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-stone-50 to-white z-0" />
+                    <div className="absolute top-0 inset-x-0 h-32 bg-gold/5 rounded-b-full z-0" />
+                    <div className="absolute bottom-0 inset-x-0 h-32 bg-blue-900/5 rounded-t-full z-0" />
 
-              <div className="relative z-10">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-serif text-gold mb-2">Cédric</h3>
-                  <div className="w-12 h-1 bg-gold rounded-full" />
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div className="mb-6 p-4 bg-white/80 backdrop-blur-sm rounded-full shadow-sm text-gold border border-gold/10">
+                        {step.type === "testimony" && (
+                          <Quote size={32} className="opacity-80" />
+                        )}
+                        {step.type === "narrative" && (
+                          <Heart size={32} className="opacity-80" />
+                        )}
+                        {step.type === "event" && (
+                          <Calendar size={32} className="opacity-80" />
+                        )}
+                      </div>
+
+                      <h3 className="text-2xl font-serif text-gold mb-2 px-4 leading-tight">
+                        {step.title}
+                      </h3>
+
+                      {step.date && (
+                        <div className="text-sm font-sans uppercase tracking-widest text-blue-900/60 mb-4 border-b border-gold/20 pb-1">
+                          {step.date}
+                        </div>
+                      )}
+
+                      {"speaker" in step && step.speaker && (
+                        <div className="text-sm font-sans uppercase tracking-widest text-stone-400 mt-2">
+                          - {step.speaker} -
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Timeline Dot (Desktop only) */}
+                  <div
+                    className={`hidden md:block absolute top-1/2 ${isEven ? "-right-8 translate-x-1/2" : "-left-8 -translate-x-1/2"} w-4 h-4 rounded-full bg-white border-4 border-gold z-20 shadow-md`}
+                  />
                 </div>
 
-                <blockquote className="text-base md:text-lg [font-family:var(--font-playfair)] text-stone-700 italic leading-relaxed mb-6">
-                  Karelle est la lumière qui illumine mes journées. Son sourire,
-                  sa douceur et sa foi inébranlable m&apos;inspirent chaque
-                  jour. Avec elle, j&apos;ai trouvé non seulement une
-                  partenaire, mais une âme sœur avec qui bâtir un avenir rempli
-                  d&apos;amour et de grâce.
-                </blockquote>
+                {/* Content Side */}
+                <div
+                  className={`w-full md:w-1/2 ${isEven ? "md:text-left" : "md:text-right"}`}
+                >
+                  <div className="relative">
+                    {/* Quote mark for testimonies */}
+                    {step.type === "testimony" && (
+                      <span
+                        className={`absolute -top-6 text-6xl text-gold/10 font-serif leading-none select-none ${isEven ? "-left-4" : "-right-4"}`}
+                      >
+                        &ldquo;
+                      </span>
+                    )}
 
-                <div className="flex items-center gap-2 text-sm text-stone-500">
-                  <div className="w-8 h-[1px] bg-gold" />
-                  <span className="italic">Le Marié</span>
+                    <div className="prose prose-stone prose-lg max-w-none">
+                      <p className="whitespace-pre-line text-stone-600 leading-loose font-light">
+                        {step.content}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Karelle's Testimonial */}
-          <div className="group relative md:mt-16">
-            {/* Decorative quote mark */}
-            <div className="absolute -top-6 -left-4 text-8xl text-gold/20 font-serif leading-none select-none">
-              "
-            </div>
-
-            <div className="relative bg-gradient-to-br from-white to-stone-50/50 p-10 md:p-12 rounded-2xl shadow-xl border border-stone-100 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-              {/* Corner accents */}
-              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-gold/30 rounded-tl-2xl" />
-              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-gold/30 rounded-br-2xl" />
-
-              <div className="relative z-10">
-                <div className="mb-6">
-                  <h3 className="text-2xl font-serif text-gold mb-2">
-                    Karelle
-                  </h3>
-                  <div className="w-12 h-1 bg-gold rounded-full" />
-                </div>
-
-                <blockquote className="text-base md:text-lg [font-family:var(--font-playfair)] text-stone-700 italic leading-relaxed mb-6">
-                  Cédric est mon roc, mon confident et mon meilleur ami. Sa
-                  gentillesse, sa sagesse et son amour inconditionnel me font me
-                  sentir bénie chaque jour. Ensemble, nous marchons vers un
-                  avenir où l&apos;amour de Dieu guide nos pas.
-                </blockquote>
-
-                <div className="flex items-center gap-2 text-sm text-stone-500">
-                  <div className="w-8 h-[1px] bg-gold" />
-                  <span className="italic">La Mariée</span>
-                </div>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
 
-        {/* Decorative center element */}
-        <div className="flex justify-center mt-16">
-          <div className="flex items-center gap-3">
-            <div className="w-2 h-2 rounded-full bg-gold" />
-            <div className="w-3 h-3 rounded-full bg-gold" />
-            <div className="w-2 h-2 rounded-full bg-gold" />
+        {/* Dress Code Section */}
+        <div className="mt-24 md:mt-32 max-w-3xl mx-auto">
+          <div className="relative bg-gradient-to-br from-[#003791] to-[#002a70] text-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden text-center border-4 border-white/10">
+            {/* Decorative Elements */}
+            <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 right-0 w-48 h-48 bg-gold/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+
+            <div className="relative z-10">
+              <div className="inline-flex items-center justify-center p-3 bg-white/10 rounded-full mb-6 backdrop-blur-md border border-white/20">
+                <Info size={24} className="text-gold" />
+              </div>
+
+              <h3 className="text-2xl md:text-3xl font-serif text-gold mb-6">
+                {dc.title}
+              </h3>
+
+              <p className="text-blue-50/90 mb-8 leading-relaxed font-light text-lg">
+                {dc.intro}{" "}
+                <strong className="text-gold font-medium">
+                  {dc.royalBlue}
+                </strong>{" "}
+                {dc.and}{" "}
+                <strong className="text-gold font-medium">{dc.gold}</strong>{" "}
+                {dc.asColors}
+              </p>
+
+              <div className="bg-white/5 p-6 rounded-xl border border-white/10 mb-8 max-w-2xl mx-auto backdrop-blur-sm">
+                <p className="italic font-serif text-blue-100 text-base md:text-lg mb-4">
+                  &ldquo;{dc.verse}&rdquo;
+                </p>
+                <cite className="text-sm font-sans uppercase tracking-widest text-gold opacity-80 not-italic">
+                  {dc.verseRef}
+                </cite>
+              </div>
+
+              <p className="text-blue-50/80 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+                {dc.closing}
+              </p>
+            </div>
           </div>
         </div>
       </div>

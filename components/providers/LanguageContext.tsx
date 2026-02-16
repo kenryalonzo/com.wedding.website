@@ -14,15 +14,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguage] = useState<Language>(() => {
-    if (typeof window !== "undefined") {
-      const saved = localStorage.getItem("wedding-lang") as Language;
-      if (saved && ["fr", "en", "de"].includes(saved)) {
-        return saved;
-      }
+  const [language, setLanguage] = useState<Language>("fr");
+
+  useEffect(() => {
+    const saved = localStorage.getItem("wedding-lang") as Language;
+    if (saved && ["fr", "en", "de"].includes(saved)) {
+      setLanguage(saved);
     }
-    return "fr";
-  });
+  }, []);
 
   const handleSetLanguage = (lang: Language) => {
     setLanguage(lang);
