@@ -38,7 +38,7 @@ export default function Guestbook({ messages }: GuestbookProps) {
           </div>
           <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-6 relative inline-block">
             {t.title}
-            <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent" />
+            <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-linear-to-r from-transparent via-gold to-transparent" />
           </h2>
         </div>
 
@@ -51,7 +51,7 @@ export default function Guestbook({ messages }: GuestbookProps) {
                   {/* Card */}
                   <div className="relative bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-gold/10 transition-all duration-500 hover:shadow-xl hover:shadow-gold/5 hover:border-gold/25 hover:-translate-y-1">
                     {/* Decorative gold accent top */}
-                    <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-gold/30 to-transparent rounded-full" />
+                    <div className="absolute top-0 left-8 right-8 h-[2px] bg-linear-to-r from-transparent via-gold/30 to-transparent rounded-full" />
 
                     {/* Quote Icon */}
                     <div className="absolute -top-3 left-6 bg-gold/10 p-2 rounded-full border border-gold/20">
@@ -70,7 +70,7 @@ export default function Guestbook({ messages }: GuestbookProps) {
                     <div className="flex items-center justify-between border-t border-stone-100/80 pt-4">
                       <div className="flex items-center gap-3">
                         {/* Avatar placeholder */}
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-gold/20 to-gold/5 flex items-center justify-center text-gold font-serif text-sm font-bold border border-gold/20">
+                        <div className="w-8 h-8 rounded-full bg-linear-to-br from-gold/20 to-gold/5 flex items-center justify-center text-gold font-serif text-sm font-bold border border-gold/20">
                           {msg.name.charAt(0).toUpperCase()}
                         </div>
                         <span className="font-sans font-semibold text-sm text-stone-700">

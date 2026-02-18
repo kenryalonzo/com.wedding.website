@@ -17,10 +17,9 @@ export default function Hero({ children }: HeroProps) {
           src="/vase-dore.png"
           alt="Vase d'Or Background"
           fill
-          className="object-cover opacity-90"
+          className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-blue-100/20" />
         {/* Subtle Shimmer Halo */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/15 rounded-full blur-[120px] animate-pulse pointer-events-none" />
       </div>

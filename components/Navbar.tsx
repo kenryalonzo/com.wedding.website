@@ -130,12 +130,12 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div id="mobile-menu" className="md:hidden">
           <div
-            className="fixed inset-0 z-[60]"
+            className="fixed inset-0 z-60"
             style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
             onClick={() => setIsMobileMenuOpen(false)}
           />
           <div
-            className="fixed right-0 top-0 z-[70] h-auto max-h-screen w-[86%] max-w-sm border-l-2 p-6 shadow-[0_0_30px_rgba(0,0,0,0.8)] overflow-y-auto animate-in slide-in-from-right duration-300"
+            className="fixed right-0 top-0 z-70 h-auto max-h-screen w-[86%] max-w-sm border-l-2 p-6 shadow-[0_0_30px_rgba(0,0,0,0.8)] overflow-y-auto animate-in slide-in-from-right duration-300"
             style={{
               backgroundColor: "#001f54",
               borderColor: "rgba(243,155,21,0.4)",

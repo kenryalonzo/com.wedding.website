@@ -41,51 +41,32 @@ export default function Countdown() {
 
   if (!timeLeft) return null;
 
+  const units = [
+    { value: timeLeft.days, label: t.days },
+    { value: timeLeft.hours, label: t.hours },
+    { value: timeLeft.minutes, label: t.minutes },
+    { value: timeLeft.seconds, label: t.seconds },
+  ];
+
   return (
     <div className="w-full max-w-md mx-auto">
-      <div className="bg-black/20 backdrop-blur-sm rounded-lg px-6 py-4 border border-white/10">
-        <div className="grid grid-cols-4 gap-3 md:gap-6">
-          <div className="flex flex-col items-center">
-            <span className="text-2xl md:text-3xl font-serif font-light text-white drop-shadow-lg">
-              {timeLeft.days}
-            </span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
-              {t.days}
-            </span>
-          </div>
-          <div className="flex flex-col items-center relative">
-            <span className="hidden md:block absolute -left-3 top-1 text-lg font-serif text-gold/40">
-              :
-            </span>
-            <span className="text-2xl md:text-3xl font-serif font-light text-white drop-shadow-lg">
-              {timeLeft.hours}
-            </span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
-              {t.hours}
-            </span>
-          </div>
-          <div className="flex flex-col items-center relative">
-            <span className="hidden md:block absolute -left-3 top-1 text-lg font-serif text-gold/40">
-              :
-            </span>
-            <span className="text-2xl md:text-3xl font-serif font-light text-white drop-shadow-lg">
-              {timeLeft.minutes}
-            </span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
-              {t.minutes}
-            </span>
-          </div>
-          <div className="flex flex-col items-center relative">
-            <span className="hidden md:block absolute -left-3 top-1 text-lg font-serif text-gold/40">
-              :
-            </span>
-            <span className="text-2xl md:text-3xl font-serif font-light text-white drop-shadow-lg">
-              {timeLeft.seconds}
-            </span>
-            <span className="text-[9px] md:text-[10px] uppercase tracking-[0.15em] mt-1 text-gold/90">
-              {t.seconds}
-            </span>
-          </div>
+      <div className="bg-black/65 backdrop-blur-md rounded-xl px-6 py-5 border border-white/25 shadow-2xl">
+        <div className="grid grid-cols-4 gap-2 md:gap-4">
+          {units.map((unit, i) => (
+            <div key={i} className="flex flex-col items-center relative">
+              {i > 0 && (
+                <span className="hidden md:block absolute -left-2 top-1 text-xl font-serif text-gold/70 select-none">
+                  :
+                </span>
+              )}
+              <span className="text-3xl md:text-4xl font-serif font-semibold text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                {String(unit.value).padStart(2, "0")}
+              </span>
+              <span className="text-[9px] md:text-[11px] uppercase tracking-[0.15em] mt-1.5 text-gold font-semibold">
+                {unit.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </div>

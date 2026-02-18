@@ -74,11 +74,14 @@ export default function Donation() {
             {/* PayPal Section */}
             <div className="flex flex-col items-center text-center space-y-6">
               <span className="font-serif text-2xl text-stone-700">PayPal</span>
-              <p className="text-stone-500 text-sm max-w-[200px]">
+              <p className="text-stone-500 text-sm max-w-[220px]">
                 {t.paypalDesc}
               </p>
+              <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 max-w-[220px] leading-relaxed">
+                {t.paypalTip}
+              </p>
               <a
-                href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=Kamsicedric@gmail.com&item_name=Mariage+Cedric+et+Karelle&currency_code=EUR"
+                href="https://paypal.me/KamsiCedric"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-gold text-gold hover:bg-gold hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-serif"
