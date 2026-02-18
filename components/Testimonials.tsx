@@ -3,6 +3,23 @@
 import { Quote, Heart, Calendar, Info } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageContext";
 import { translations } from "@/lib/translations";
+import React from "react";
+
+/**
+ * Renders text with **bold** markers as <strong> elements.
+ */
+function renderBoldText(text: string, className?: string) {
+  const parts = text.split(/\*\*([^*]+)\*\*/g);
+  return parts.map((part, i) =>
+    i % 2 === 1 ? (
+      <strong key={i} className={className ?? "font-bold"}>
+        {part}
+      </strong>
+    ) : (
+      <React.Fragment key={i}>{part}</React.Fragment>
+    ),
+  );
+}
 
 export default function Testimonials() {
   const { language } = useLanguage();
@@ -26,9 +43,9 @@ export default function Testimonials() {
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-transparent bg-clip-text bg-gradient-to-r from-gold to-yellow-600 mb-6 relative inline-block">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-transparent bg-clip-text bg-linear-to-r from-gold to-yellow-600 mb-6 relative inline-block">
             <span className="relative z-10">{t.sectionTitle}</span>
-            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50" />
+            <div className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-transparent via-gold to-transparent opacity-50" />
           </h2>
           <div className="w-24 h-1 bg-gold mx-auto rounded-full mb-6 opacity-80" />
           <p className="text-stone-500 italic font-serif text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -42,7 +59,7 @@ export default function Testimonials() {
         {/* Timeline Items */}
         <div className="space-y-16 md:space-y-32 relative">
           {/* Vertical Line for Desktop */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/50 to-transparent transform -translate-x-1/2" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-linear-to-b from-transparent via-gold/50 to-transparent transform -translate-x-1/2" />
 
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
@@ -57,7 +74,7 @@ export default function Testimonials() {
                 <div className="w-full md:w-1/2 flex justify-center md:justify-end items-center relative group">
                   <div className="relative z-10 bg-white p-6 rounded-t-[10rem] rounded-b-[10rem] shadow-xl border border-gold/20 flex flex-col items-center justify-center text-center aspect-[3/4] w-full max-w-xs transition-transform duration-500 group-hover:scale-105 group-hover:shadow-2xl overflow-hidden">
                     {/* Decorative bg inside card */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-stone-50 to-white z-0" />
+                    <div className="absolute inset-0 bg-linear-to-br from-stone-50 to-white z-0" />
                     <div className="absolute top-0 inset-x-0 h-32 bg-gold/5 rounded-b-full z-0" />
                     <div className="absolute bottom-0 inset-x-0 h-32 bg-blue-900/5 rounded-t-full z-0" />
 
@@ -113,7 +130,7 @@ export default function Testimonials() {
                     )}
 
                     <div className="prose prose-stone prose-lg max-w-none">
-                      <p className="whitespace-pre-line text-stone-600 leading-loose font-light">
+                      <p className="whitespace-pre-line text-stone-600 leading-loose font-light text-lg [font-family:var(--font-cormorant)]">
                         {step.content}
                       </p>
                     </div>
@@ -126,7 +143,7 @@ export default function Testimonials() {
 
         {/* Dress Code Section */}
         <div className="mt-24 md:mt-32 max-w-3xl mx-auto">
-          <div className="relative bg-gradient-to-br from-[#003791] to-[#002a70] text-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden text-center border-4 border-white/10">
+          <div className="relative bg-linear-to-br from-[#003791] to-[#002a70] text-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden text-center border-4 border-white/10">
             {/* Decorative Elements */}
             <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 right-0 w-48 h-48 bg-gold/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
@@ -140,7 +157,7 @@ export default function Testimonials() {
                 {dc.title}
               </h3>
 
-              <p className="text-blue-50/90 mb-8 leading-relaxed font-light text-lg">
+              <p className="text-blue-50/90 mb-8 leading-relaxed font-light text-lg [font-family:var(--font-cormorant)]">
                 {dc.intro}{" "}
                 <strong className="text-gold font-medium">
                   {dc.royalBlue}
@@ -159,8 +176,8 @@ export default function Testimonials() {
                 </cite>
               </div>
 
-              <p className="text-blue-50/80 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
-                {dc.closing}
+              <p className="text-blue-50/80 text-sm md:text-base leading-relaxed max-w-xl mx-auto [font-family:var(--font-cormorant)]">
+                {renderBoldText(dc.closing, "font-bold text-white")}
               </p>
             </div>
           </div>

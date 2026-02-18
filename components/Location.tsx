@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { MapPin } from "lucide-react";
+import { MapPin, Car } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageContext";
 import { translations } from "@/lib/translations";
 
@@ -23,7 +23,7 @@ export default function Location() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
               <div className="absolute bottom-8 left-8 text-white">
                 <span className="block text-sm uppercase tracking-widest mb-2 font-light">
                   {t.label}
@@ -42,7 +42,7 @@ export default function Location() {
                 {t.title} <br />{" "}
                 <span className="text-gold italic">{t.titleHighlight}</span>
               </h2>
-              <p className="text-stone-600 leading-relaxed text-lg">
+              <p className="text-stone-600 leading-relaxed text-lg [font-family:var(--font-cormorant)]">
                 {t.description}
               </p>
             </div>
@@ -71,6 +71,25 @@ export default function Location() {
                 <p className="text-stone-500">
                   Rathausplatz 2, 27749 Delmenhorst
                 </p>
+              </div>
+            </div>
+
+            {/* Parking Section */}
+            <div className="relative group mt-8">
+              <div className="relative h-[280px] w-full rounded-xl overflow-hidden shadow-lg border border-stone-100">
+                <Image
+                  src="/lieu-1.jpg"
+                  alt="Parking"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-3 text-white">
+                  <div className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/30">
+                    <Car className="w-5 h-5" />
+                  </div>
+                  <span className="text-lg font-serif">Parking</span>
+                </div>
               </div>
             </div>
           </div>

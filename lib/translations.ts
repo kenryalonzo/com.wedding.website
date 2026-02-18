@@ -41,7 +41,7 @@ export const translations = {
     },
     story: {
       title: "Notre Thème",
-      subtitle: "Vase d'Or",
+      subtitle: "Vase d'Honneur",
       verse:
         "Si donc quelqu'un se conserve pur, en s'abstenant de ces choses, il sera un vase d'honneur, sanctifié, utile à son maître, propre à toute bonne œuvre.",
       verseRef: "— 2 Timothée 2:21 —",
@@ -151,7 +151,7 @@ export const translations = {
           "C'est pourquoi je veux qu'en tout lieu les hommes prient en élevant vers le ciel des mains pures, sans colère ni esprit de dispute. 9 Je veux que les femmes agissent de même, en s'habillant décemment, avec discrétion et simplicité. Qu'elles ne se parent pas d'une coiffure recherchée, d'or, de perles ou de toilettes somptueuses",
         verseRef: "— 1 Timothée 2:8-9 —",
         closing:
-          "Nous vous prions de privilégier une tenue décente, empreinte de pudeur et de modestie, afin que ce moment demeure à l'image des valeurs que nous célébrons. Nous vous remercions sincèrement de contribuer, par votre présence et votre élégance, à la grâce de cette journée exceptionnelle. 💙✨",
+          "Nous vous prions de privilégier une **tenue décente**, empreinte de **pudeur** et de **modestie**, **afin que** ce moment demeure à l'image des valeurs que nous célébrons. Nous vous remercions sincèrement de contribuer, par votre présence et votre élégance, à la grâce de cette journée exceptionnelle. 💙✨",
       },
     },
   },
@@ -195,7 +195,7 @@ export const translations = {
     },
     story: {
       title: "Our Theme",
-      subtitle: "Golden Vessel",
+      subtitle: "Vessel of Honour",
       verse:
         "If a man therefore purge himself from these, he shall be a vessel unto honour, sanctified, and meet for the master's use, and prepared unto every good work.",
       verseRef: "— 2 Timothy 2:21 —",
@@ -304,7 +304,7 @@ export const translations = {
           "Therefore I want the men everywhere to pray, lifting up holy hands without anger or disputing. I also want the women to dress modestly, with decency and propriety, adorning themselves, not with elaborate hairstyles or gold or pearls or expensive clothes",
         verseRef: "— 1 Timothy 2:8-9 —",
         closing:
-          "We kindly ask you to favor a decent outfit, marked by modesty and simplicity, so that this moment remains true to the values we celebrate. We sincerely thank you for contributing, through your presence and elegance, to the grace of this exceptional day. 💙✨",
+          "We kindly ask you to favor a **decent outfit**, marked by **modesty** and **simplicity**, **so that** this moment remains true to the values we celebrate. We sincerely thank you for contributing, through your presence and elegance, to the grace of this exceptional day. 💙✨",
       },
     },
   },
@@ -348,7 +348,7 @@ export const translations = {
     },
     story: {
       title: "Unser Thema",
-      subtitle: "Goldenes Gefäß",
+      subtitle: "Ehrengefäß",
       verse:
         "Wenn nun jemand sich reinigt von solchen Leuten, der wird ein Gefäß sein zu ehrenvollem Gebrauch, geheiligt, für den Hausherrn brauchbar und zu allem guten Werk bereitet.",
       verseRef: "— 2. Timotheus 2:21 —",
@@ -458,7 +458,7 @@ export const translations = {
           "So will ich nun, dass die Männer beten an allen Orten und aufheben heilige Hände ohne Zorn und Zweifel; desgleichen, dass die Frauen in schicklicher Kleidung sich schmücken mit Anstand und Besonnenheit, nicht mit Haarflechten und Gold oder Perlen oder kostbarem Gewand",
         verseRef: "— 1. Timotheus 2:8-9 —",
         closing:
-          "Wir bitten Sie, ein dezentes Outfit zu bevorzugen, geprägt von Bescheidenheit und Einfachheit, damit dieser Moment den Werten entspricht, die wir feiern. Wir danken Ihnen aufrichtig, dass Sie durch Ihre Anwesenheit und Eleganz zur Anmut dieses außergewöhnlichen Tages beitragen. 💙✨",
+          "Wir bitten Sie, ein **dezentes Outfit** zu bevorzugen, geprägt von **Bescheidenheit** und **Einfachheit**, **damit** dieser Moment den Werten entspricht, die wir feiern. Wir danken Ihnen aufrichtig, dass Sie durch Ihre Anwesenheit und Eleganz zur Anmut dieses außergewöhnlichen Tages beitragen. 💙✨",
       },
     },
   },
