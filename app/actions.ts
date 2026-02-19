@@ -66,3 +66,16 @@ export async function getMessages() {
     return [];
   }
 }
+
+export async function clearAllData() {
+  try {
+    await prisma.message.deleteMany({});
+    await prisma.guest.deleteMany({});
+    revalidatePath("/");
+    revalidatePath("/admin");
+    return { success: true };
+  } catch (error) {
+    console.error("Clear data error:", error);
+    return { success: false };
+  }
+}

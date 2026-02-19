@@ -96,22 +96,79 @@ export default function Guestbook({ messages }: GuestbookProps) {
             </div>
           </>
         ) : (
-          /* Elegant Empty State */
-          <div className="max-w-md mx-auto text-center">
-            <div className="bg-white/60 backdrop-blur-sm border border-gold/15 rounded-3xl p-12 shadow-lg">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gold/10 rounded-full flex items-center justify-center border border-gold/20">
-                <BookOpen className="w-7 h-7 text-gold" />
+          /* Premium Empty State */
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="relative bg-white/50 backdrop-blur-md border border-gold/10 rounded-3xl p-10 md:p-16 shadow-xl overflow-hidden">
+              {/* Decorative corner flourishes */}
+              <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-gold/15 rounded-tl-3xl" />
+              <div className="absolute top-0 right-0 w-24 h-24 border-t-2 border-r-2 border-gold/15 rounded-tr-3xl" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 border-b-2 border-l-2 border-gold/15 rounded-bl-3xl" />
+              <div className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-gold/15 rounded-br-3xl" />
+
+              {/* Background glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gold/5 rounded-full blur-[80px]" />
+
+              {/* Animated floating sparkles */}
+              <div className="absolute top-6 left-12 text-gold/20 animate-pulse">
+                <Sparkles className="w-4 h-4" />
               </div>
-              <p className="text-stone-500 font-serif italic text-lg mb-8 leading-relaxed">
-                {t.emptyState}
-              </p>
-              <button
-                onClick={openRSVP}
-                className="inline-flex items-center gap-2 bg-gold hover:bg-[#e08a00] text-white font-sans uppercase tracking-[0.15em] px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 cursor-pointer text-sm"
-              >
-                <MessageCircle className="w-4 h-4" />
-                {t.leaveMessage}
-              </button>
+              <div className="absolute top-10 right-16 text-gold/15 animate-pulse delay-700">
+                <Sparkles className="w-3 h-3" />
+              </div>
+              <div className="absolute bottom-12 left-20 text-gold/15 animate-pulse delay-1000">
+                <Sparkles className="w-3.5 h-3.5" />
+              </div>
+              <div className="absolute bottom-8 right-12 text-gold/20 animate-pulse delay-500">
+                <Sparkles className="w-4 h-4" />
+              </div>
+
+              {/* Book illustration */}
+              <div className="relative z-10 mb-8">
+                <div className="w-24 h-24 mx-auto relative">
+                  {/* Book base shadow */}
+                  <div className="absolute inset-0 bg-gold/10 rounded-2xl blur-xl scale-110" />
+                  {/* Open book icon with golden glow */}
+                  <div className="relative w-full h-full bg-linear-to-br from-white to-stone-50 rounded-2xl border border-gold/20 flex items-center justify-center shadow-lg">
+                    <BookOpen
+                      className="w-10 h-10 text-gold"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                  {/* Subtle ring around the icon */}
+                  <div className="absolute -inset-2 border border-gold/10 rounded-3xl" />
+                </div>
+              </div>
+
+              {/* Decorative divider */}
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <div className="w-16 h-px bg-linear-to-r from-transparent to-gold/30" />
+                <div className="w-1.5 h-1.5 bg-gold/30 rotate-45" />
+                <div className="w-16 h-px bg-linear-to-l from-transparent to-gold/30" />
+              </div>
+
+              {/* Opening quote */}
+              <div className="relative z-10 mb-8">
+                <span className="block text-5xl text-gold/15 font-serif leading-none select-none mb-2">
+                  &ldquo;
+                </span>
+                <p className="text-stone-600 font-serif italic text-xl md:text-2xl leading-relaxed max-w-md mx-auto">
+                  {t.emptyState}
+                </p>
+                <span className="block text-5xl text-gold/15 font-serif leading-none select-none mt-2">
+                  &rdquo;
+                </span>
+              </div>
+
+              {/* CTA Button */}
+              <div className="relative z-10">
+                <button
+                  onClick={openRSVP}
+                  className="group inline-flex items-center gap-3 bg-linear-to-r from-gold to-[#e0940a] hover:from-[#e08a00] hover:to-[#d68500] text-white font-sans uppercase tracking-[0.15em] px-10 py-4 rounded-full transition-all duration-500 shadow-lg hover:shadow-2xl hover:shadow-gold/20 transform hover:-translate-y-1 cursor-pointer text-sm"
+                >
+                  <MessageCircle className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
+                  {t.leaveMessage}
+                </button>
+              </div>
             </div>
           </div>
         )}
