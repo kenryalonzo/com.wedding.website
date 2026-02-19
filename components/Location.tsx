@@ -79,7 +79,7 @@ export default function Location() {
                   className="inline-flex items-center gap-1.5 mt-3 text-xs text-gold hover:text-yellow-600 transition-colors font-semibold uppercase tracking-wider"
                 >
                   <Navigation className="w-3.5 h-3.5" />
-                  Itinéraire
+                  {t.directions}
                 </a>
               </div>
             </div>
@@ -119,10 +119,11 @@ export default function Location() {
               <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-gold">
                 <Car className="w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-serif text-stone-800">Parking</h3>
+              <h3 className="text-2xl font-serif text-stone-800">
+                {t.parking.title}
+              </h3>
               <p className="text-stone-500 leading-relaxed [font-family:var(--font-cormorant)] text-lg">
-                Un parking est disponible à proximité du lieu de cérémonie pour
-                faciliter votre venue.
+                {t.parking.description}
               </p>
             </div>
           </div>

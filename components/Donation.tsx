@@ -1,29 +1,22 @@
 "use client";
 
-import { Copy, Check } from "lucide-react";
+import { Copy, Check, ExternalLink } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/components/providers/LanguageContext";
 import { translations } from "@/lib/translations";
+import Image from "next/image";
 
 export default function Donation() {
   const { language } = useLanguage();
   const t = translations[language].donation;
 
   const [copiedIban, setCopiedIban] = useState(false);
-  const [copiedPaypal, setCopiedPaypal] = useState(false);
   const iban = "DE34 2905 0101 0083 4930 49";
-  const paypalEmail = t.paypalEmail;
 
   const handleCopyIban = () => {
     navigator.clipboard.writeText(iban);
     setCopiedIban(true);
     setTimeout(() => setCopiedIban(false), 2000);
-  };
-
-  const handleCopyPaypal = () => {
-    navigator.clipboard.writeText(paypalEmail);
-    setCopiedPaypal(true);
-    setTimeout(() => setCopiedPaypal(false), 2000);
   };
 
   return (
@@ -79,34 +72,42 @@ export default function Donation() {
               </div>
             </div>
 
-            {/* PayPal Section */}
+            {/* PayPal Section — QR Code + Link */}
             <div className="flex flex-col items-center text-center space-y-6">
               <span className="font-serif text-2xl text-stone-700">PayPal</span>
+
+              {/* QR Code */}
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gold/10 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative bg-white p-3 rounded-xl shadow-md border border-stone-100 group-hover:border-gold/30 transition-colors">
+                  <Image
+                    src="/qrcode-paypal.jpg"
+                    alt="PayPal QR Code"
+                    width={140}
+                    height={140}
+                    className="rounded-lg"
+                  />
+                </div>
+              </div>
+
               <p className="text-stone-500 text-sm max-w-[220px]">
                 {t.paypalDesc}
               </p>
-              <div className="flex flex-col space-y-2">
-                <span className="text-xs uppercase tracking-[0.2em] text-stone-400">
-                  Email
+
+              {/* PayPal.me Button */}
+              <a
+                href="https://paypal.me/CedricLaurel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-gold/10 hover:bg-gold/20 text-gold font-semibold px-6 py-3 rounded-full transition-all duration-300 border border-gold/20 hover:border-gold/40 hover:shadow-md group"
+              >
+                <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                <span className="text-sm tracking-wide">
+                  paypal.me/CedricLaurel
                 </span>
-                <button
-                  onClick={handleCopyPaypal}
-                  className="group relative flex items-center justify-center gap-2 font-mono text-base md:text-lg text-stone-600 hover:text-gold transition-colors py-2 px-4 rounded hover:bg-white/50"
-                >
-                  <span>{paypalEmail}</span>
-                  {copiedPaypal ? (
-                    <Check className="w-4 h-4 text-green-500" />
-                  ) : (
-                    <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-stone-400" />
-                  )}
-                  {copiedPaypal && (
-                    <span className="absolute -bottom-6 text-[10px] text-green-600 font-sans tracking-wide">
-                      {t.copied}
-                    </span>
-                  )}
-                </button>
-              </div>
-              <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 max-w-[220px] leading-relaxed">
+              </a>
+
+              <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 max-w-[260px] leading-relaxed">
                 {t.paypalTip}
               </p>
             </div>

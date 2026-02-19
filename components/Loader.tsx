@@ -2,6 +2,35 @@
 
 import { useState, useEffect } from "react";
 
+// Deterministic particle positions to avoid SSR/client hydration mismatch
+const DUST_PARTICLES = [
+  { left: 8, top: 12, w: 2.1, h: 1.8, delay: 0.2, dur: 4.2 },
+  { left: 22, top: 78, w: 1.5, h: 2.3, delay: 1.8, dur: 5.1 },
+  { left: 37, top: 35, w: 2.8, h: 1.2, delay: 0.9, dur: 3.8 },
+  { left: 52, top: 88, w: 1.3, h: 2.7, delay: 3.1, dur: 4.5 },
+  { left: 68, top: 15, w: 3.2, h: 1.5, delay: 2.4, dur: 5.6 },
+  { left: 85, top: 55, w: 1.8, h: 3.1, delay: 0.5, dur: 3.4 },
+  { left: 14, top: 62, w: 2.5, h: 1.9, delay: 4.0, dur: 5.3 },
+  { left: 43, top: 5, w: 1.1, h: 2.4, delay: 1.3, dur: 4.8 },
+  { left: 75, top: 42, w: 3.0, h: 1.7, delay: 2.7, dur: 3.6 },
+  { left: 92, top: 72, w: 1.6, h: 2.9, delay: 0.8, dur: 5.9 },
+  { left: 5, top: 45, w: 2.3, h: 1.4, delay: 3.5, dur: 4.1 },
+  { left: 30, top: 92, w: 1.9, h: 3.3, delay: 1.1, dur: 5.7 },
+  { left: 58, top: 25, w: 2.7, h: 1.6, delay: 4.3, dur: 3.9 },
+  { left: 78, top: 8, w: 1.4, h: 2.1, delay: 2.0, dur: 6.2 },
+  { left: 48, top: 68, w: 3.5, h: 1.3, delay: 0.4, dur: 4.7 },
+  { left: 17, top: 28, w: 2.0, h: 2.6, delay: 3.8, dur: 5.4 },
+  { left: 63, top: 52, w: 1.7, h: 1.8, delay: 1.6, dur: 3.3 },
+  { left: 88, top: 38, w: 2.4, h: 3.0, delay: 2.9, dur: 6.0 },
+  { left: 33, top: 82, w: 1.2, h: 2.2, delay: 0.7, dur: 4.4 },
+  { left: 55, top: 18, w: 3.1, h: 1.1, delay: 4.6, dur: 5.2 },
+  { left: 10, top: 95, w: 2.6, h: 2.8, delay: 1.4, dur: 3.7 },
+  { left: 72, top: 65, w: 1.8, h: 1.5, delay: 3.2, dur: 4.9 },
+  { left: 40, top: 48, w: 2.2, h: 3.4, delay: 0.1, dur: 5.8 },
+  { left: 96, top: 22, w: 1.3, h: 1.9, delay: 2.5, dur: 4.0 },
+  { left: 25, top: 58, w: 3.3, h: 2.5, delay: 4.1, dur: 3.5 },
+];
+
 export default function Loader({ children }: { children: React.ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isFadingOut, setIsFadingOut] = useState(false);
@@ -21,33 +50,29 @@ export default function Loader({ children }: { children: React.ReactNode }) {
     <>
       {/* Loader Overlay */}
       <div
-        className={`fixed inset-0 z-200 flex flex-col items-center justify-center transition-all duration-1000 ${
+        className={`fixed inset-0 z-200 flex flex-col items-center justify-center bg-[#fffcf5] transition-all duration-1000 ${
           isFadingOut ? "opacity-0 scale-110" : "opacity-100 scale-100"
         }`}
-        style={{
-          background:
-            "linear-gradient(160deg, #0a0a14 0%, #0d0b1a 30%, #12101f 60%, #0a0a14 100%)",
-        }}
       >
-        {/* Animated starfield background */}
+        {/* Animated ambient background */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Deep ambient glow orbs */}
           <div className="loader-glow-orb loader-glow-orb-1" />
           <div className="loader-glow-orb loader-glow-orb-2" />
           <div className="loader-glow-orb loader-glow-orb-3" />
 
-          {/* Floating dust particles */}
-          {Array.from({ length: 30 }).map((_, i) => (
+          {/* Floating dust particles — deterministic positions */}
+          {DUST_PARTICLES.map((p, i) => (
             <div
               key={i}
               className="loader-dust-particle"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${1 + Math.random() * 3}px`,
-                height: `${1 + Math.random() * 3}px`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${3 + Math.random() * 4}s`,
+                left: `${p.left}%`,
+                top: `${p.top}%`,
+                width: `${p.w}px`,
+                height: `${p.h}px`,
+                animationDelay: `${p.delay}s`,
+                animationDuration: `${p.dur}s`,
               }}
             />
           ))}
@@ -127,7 +152,7 @@ export default function Loader({ children }: { children: React.ReactNode }) {
                   x2="100%"
                   y2="0%"
                 >
-                  <stop offset="0%" stopColor="#ffeaa7" stopOpacity="0.7" />
+                  <stop offset="0%" stopColor="#e8a317" stopOpacity="0.7" />
                   <stop offset="100%" stopColor="#f39b15" stopOpacity="0.3" />
                 </linearGradient>
               </defs>
@@ -186,7 +211,7 @@ export default function Loader({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Orbital light particles */}
-          {Array.from({ length: 8 }).map((_, i) => (
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
             <div
               key={i}
               className="loader-orbital-particle"

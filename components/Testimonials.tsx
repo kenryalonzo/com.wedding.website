@@ -24,6 +24,8 @@ function renderBoldText(text: string, className?: string) {
 
 const imageMap: Record<string, string> = {
   debut: "/le debut.png",
+  cedric: "/cedrick.jpg",
+  karelle: "/karelle.jpg",
   croissance: "/croissance.png",
   "doigt-de-dieu": "/main.png",
   mariage: "/mariage.png",

@@ -52,8 +52,7 @@ export const translations = {
         "Votre présence est notre plus beau cadeau. Si vous souhaitez participer à notre nouvelle vie...",
       transfer: "Virement",
       copied: "Copié dans le presse-papier",
-      paypalDesc: "Via l'adresse PayPal ci-dessous",
-      paypalEmail: "Kamsicedric@gmail.com",
+      paypalDesc: "Scannez le QR code ou cliquez sur le lien ci-dessous",
       paypalTip:
         '💡 Sélectionnez "Envoyer à un ami" pour éviter les frais de transaction.',
       donate: "Faire un don",
@@ -65,6 +64,12 @@ export const translations = {
       description:
         "Nous avons choisi ce lieu emblématique pour célébrer notre union. Un cadre majestueux au cœur de Delmenhorst, facile d'accès et proche de toutes commodités.",
       addressTitle: "Adresse complète",
+      directions: "Itinéraire",
+      parking: {
+        title: "Parking",
+        description:
+          "Merci de penser à vous garer dans les différents parkings proches de la cérémonie : Graftwiesen, Hans-Böckler-Platz, City Parkhaus, Am Stadtwall et Hundewiese.",
+      },
     },
     guestbook: {
       label: "Vos mots doux",
@@ -209,8 +214,7 @@ export const translations = {
         "Your presence is our greatest gift. If you wish to contribute to our new life...",
       transfer: "Bank Transfer",
       copied: "Copied to clipboard",
-      paypalDesc: "Via the PayPal email below",
-      paypalEmail: "Kamsicedric@gmail.com",
+      paypalDesc: "Scan the QR code or click the link below",
       paypalTip: '💡 Select "Send to a friend" to avoid transaction fees.',
       donate: "Make a donation",
     },
@@ -221,6 +225,12 @@ export const translations = {
       description:
         "We have chosen this iconic venue to celebrate our union. A majestic setting in the heart of Delmenhorst, easily accessible and close to all amenities.",
       addressTitle: "Full address",
+      directions: "Directions",
+      parking: {
+        title: "Parking",
+        description:
+          "Please remember to park in one of the nearby parking lots close to the ceremony venue: Graftwiesen, Hans-Böckler-Platz, City Parkhaus, Am Stadtwall and Hundewiese.",
+      },
     },
     guestbook: {
       label: "Your sweet words",
@@ -364,8 +374,7 @@ export const translations = {
         "Ihre Anwesenheit ist unser schönstes Geschenk. Wenn Sie zu unserem neuen Leben beitragen möchten...",
       transfer: "Überweisung",
       copied: "In die Zwischenablage kopiert",
-      paypalDesc: "Über die untenstehende PayPal-E-Mail",
-      paypalEmail: "Kamsicedric@gmail.com",
+      paypalDesc: "Scannen Sie den QR-Code oder klicken Sie auf den Link unten",
       paypalTip:
         '💡 Wählen Sie "An einen Freund senden", um Transaktionsgebühren zu vermeiden.',
       donate: "Spenden",
@@ -377,6 +386,12 @@ export const translations = {
       description:
         "Wir haben diesen besonderen Ort gewählt, um unsere Verbindung zu feiern. Ein majestätisches Ambiente im Herzen von Delmenhorst, leicht erreichbar und in der Nähe aller Annehmlichkeiten.",
       addressTitle: "Vollständige Adresse",
+      directions: "Wegbeschreibung",
+      parking: {
+        title: "Parken",
+        description:
+          "Bitte denken Sie daran, auf einem der nahegelegenen Parkplätze in der Nähe des Zeremonie-Ortes zu parken: Graftwiesen, Hans-Böckler-Platz, City Parkhaus, Am Stadtwall und Hundewiese.",
+      },
     },
     guestbook: {
       label: "Ihre lieben Worte",
