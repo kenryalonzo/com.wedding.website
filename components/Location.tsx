@@ -4,6 +4,7 @@ import Image from "next/image";
 import { MapPin, Car, Navigation } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageContext";
 import { translations } from "@/lib/translations";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Location() {
   const { language } = useLanguage();
@@ -100,34 +101,68 @@ export default function Location() {
           </div>
         </div>
 
-        {/* Parking — Full width card */}
-        <div className="relative group rounded-2xl overflow-hidden shadow-lg border border-stone-100">
-          <div className="grid md:grid-cols-2 items-center">
-            {/* Parking image */}
-            <div className="relative h-56 md:h-72 overflow-hidden">
-              <Image
-                src="/lieu-1.jpg"
-                alt="Parking"
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-linear-to-r from-transparent to-black/20 md:bg-linear-to-l" />
-            </div>
-
-            {/* Parking info */}
-            <div className="bg-white/90 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-center gap-4">
-              <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-gold">
-                <Car className="w-6 h-6" />
+        {/* Ceremony — Full width card */}
+        <ScrollReveal variant="fade-left">
+          <div className="relative group rounded-2xl overflow-hidden shadow-lg border border-stone-100 mb-12">
+            <div className="grid md:grid-cols-2 items-center">
+              {/* Ceremony image */}
+              <div className="relative h-56 md:h-72 overflow-hidden">
+                <Image
+                  src="/lieu-2.jpg"
+                  alt="Ceremony"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent to-black/20 md:bg-linear-to-l" />
               </div>
-              <h3 className="text-2xl font-serif text-stone-800">
-                {t.parking.title}
-              </h3>
-              <p className="text-stone-500 leading-relaxed [font-family:var(--font-cormorant)] text-lg">
-                {t.parking.description}
-              </p>
+
+              {/* Ceremony info */}
+              <div className="bg-white/90 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-center gap-4">
+                <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-gold">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-serif text-stone-800">
+                  {t.title}{" "}
+                  <span className="text-gold italic">{t.titleHighlight}</span>
+                </h3>
+                <p className="text-stone-500 leading-relaxed [font-family:var(--font-cormorant)] text-lg">
+                  {t.description}
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
+
+        {/* Parking — Full width card */}
+        <ScrollReveal variant="fade-right">
+          <div className="relative group rounded-2xl overflow-hidden shadow-lg border border-stone-100">
+            <div className="grid md:grid-cols-2 items-center">
+              {/* Parking image */}
+              <div className="relative h-56 md:h-72 overflow-hidden">
+                <Image
+                  src="/lieu-1.jpg"
+                  alt="Parking"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-linear-to-r from-transparent to-black/20 md:bg-linear-to-l" />
+              </div>
+
+              {/* Parking info */}
+              <div className="bg-white/90 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-center gap-4">
+                <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-gold">
+                  <Car className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-serif text-stone-800">
+                  {t.parking.title}
+                </h3>
+                <p className="text-stone-500 leading-relaxed [font-family:var(--font-cormorant)] text-lg">
+                  {t.parking.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
