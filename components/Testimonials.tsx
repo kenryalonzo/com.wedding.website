@@ -4,6 +4,7 @@ import { Quote, Heart, Calendar, Info } from "lucide-react";
 import { useLanguage } from "@/components/providers/LanguageContext";
 import { translations } from "@/lib/translations";
 import React from "react";
+import Image from "next/image";
 
 /**
  * Renders text with **bold** markers as <strong> elements.
@@ -20,6 +21,13 @@ function renderBoldText(text: string, className?: string) {
     ),
   );
 }
+
+const imageMap: Record<string, string> = {
+  debut: "/le debut.png",
+  croissance: "/croissance.png",
+  "doigt-de-dieu": "/main.png",
+  mariage: "/mariage.png",
+};
 
 export default function Testimonials() {
   const { language } = useLanguage();
@@ -63,6 +71,7 @@ export default function Testimonials() {
 
           {steps.map((step, index) => {
             const isEven = index % 2 === 0;
+            const hasImage = step.id in imageMap;
             return (
               <div
                 key={step.id}
@@ -70,43 +79,72 @@ export default function Testimonials() {
                   isEven ? "" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Icon Side */}
+                {/* Icon / Image Side */}
                 <div className="w-full md:w-1/2 flex justify-center md:justify-end items-center relative group">
-                  <div className="relative z-10 bg-white p-6 rounded-t-[10rem] rounded-b-[10rem] shadow-xl border border-gold/20 flex flex-col items-center justify-center text-center aspect-[3/4] w-full max-w-xs transition-transform duration-500 group-hover:scale-105 group-hover:shadow-2xl overflow-hidden">
-                    {/* Decorative bg inside card */}
-                    <div className="absolute inset-0 bg-linear-to-br from-stone-50 to-white z-0" />
-                    <div className="absolute top-0 inset-x-0 h-32 bg-gold/5 rounded-b-full z-0" />
-                    <div className="absolute bottom-0 inset-x-0 h-32 bg-blue-900/5 rounded-t-full z-0" />
-
-                    <div className="relative z-10 flex flex-col items-center">
-                      <div className="mb-6 p-4 bg-white/80 backdrop-blur-sm rounded-full shadow-sm text-gold border border-gold/10">
-                        {step.type === "testimony" && (
-                          <Quote size={32} className="opacity-80" />
-                        )}
-                        {step.type === "narrative" && (
-                          <Heart size={32} className="opacity-80" />
-                        )}
-                        {step.type === "event" && (
-                          <Calendar size={32} className="opacity-80" />
-                        )}
-                      </div>
-
-                      <h3 className="text-2xl font-serif text-gold mb-2 px-4 leading-tight">
-                        {step.title}
-                      </h3>
-
-                      {step.date && (
-                        <div className="text-sm font-sans uppercase tracking-widest text-blue-900/60 mb-4 border-b border-gold/20 pb-1">
-                          {step.date}
+                  <div
+                    className={`relative z-10 ${hasImage ? "bg-stone-100" : "bg-white"} rounded-t-[10rem] rounded-b-[10rem] shadow-xl border border-gold/20 flex flex-col items-center justify-center text-center aspect-[3/4] w-full max-w-xs transition-transform duration-500 group-hover:scale-105 group-hover:shadow-2xl overflow-hidden`}
+                  >
+                    {hasImage ? (
+                      /* Image card */
+                      <>
+                        <Image
+                          src={imageMap[step.id]}
+                          alt={step.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 80vw, 320px"
+                        />
+                        {/* Overlay with title */}
+                        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent z-10" />
+                        <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-center">
+                          <h3 className="text-2xl font-serif text-white mb-1 drop-shadow-lg">
+                            {step.title}
+                          </h3>
+                          {step.date && (
+                            <div className="text-sm font-sans uppercase tracking-widest text-gold/90">
+                              {step.date}
+                            </div>
+                          )}
                         </div>
-                      )}
+                      </>
+                    ) : (
+                      /* Icon card (for Cédric & Karelle) */
+                      <>
+                        <div className="absolute inset-0 bg-linear-to-br from-stone-50 to-white z-0" />
+                        <div className="absolute top-0 inset-x-0 h-32 bg-gold/5 rounded-b-full z-0" />
+                        <div className="absolute bottom-0 inset-x-0 h-32 bg-blue-900/5 rounded-t-full z-0" />
 
-                      {"speaker" in step && step.speaker && (
-                        <div className="text-sm font-sans uppercase tracking-widest text-stone-400 mt-2">
-                          - {step.speaker} -
+                        <div className="relative z-10 flex flex-col items-center">
+                          <div className="mb-6 p-4 bg-white/80 backdrop-blur-sm rounded-full shadow-sm text-gold border border-gold/10">
+                            {step.type === "testimony" && (
+                              <Quote size={32} className="opacity-80" />
+                            )}
+                            {step.type === "narrative" && (
+                              <Heart size={32} className="opacity-80" />
+                            )}
+                            {step.type === "event" && (
+                              <Calendar size={32} className="opacity-80" />
+                            )}
+                          </div>
+
+                          <h3 className="text-2xl font-serif text-gold mb-2 px-4 leading-tight">
+                            {step.title}
+                          </h3>
+
+                          {step.date && (
+                            <div className="text-sm font-sans uppercase tracking-widest text-blue-900/60 mb-4 border-b border-gold/20 pb-1">
+                              {step.date}
+                            </div>
+                          )}
+
+                          {"speaker" in step && step.speaker && (
+                            <div className="text-sm font-sans uppercase tracking-widest text-stone-400 mt-2">
+                              - {step.speaker} -
+                            </div>
+                          )}
                         </div>
-                      )}
-                    </div>
+                      </>
+                    )}
                   </div>
 
                   {/* Timeline Dot (Desktop only) */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { Wallet, Copy, Check } from "lucide-react";
+import { Copy, Check } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/components/providers/LanguageContext";
 import { translations } from "@/lib/translations";
@@ -9,13 +9,21 @@ export default function Donation() {
   const { language } = useLanguage();
   const t = translations[language].donation;
 
-  const [copied, setCopied] = useState(false);
+  const [copiedIban, setCopiedIban] = useState(false);
+  const [copiedPaypal, setCopiedPaypal] = useState(false);
   const iban = "DE34 2905 0101 0083 4930 49";
+  const paypalEmail = t.paypalEmail;
 
-  const handleCopy = () => {
+  const handleCopyIban = () => {
     navigator.clipboard.writeText(iban);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiedIban(true);
+    setTimeout(() => setCopiedIban(false), 2000);
+  };
+
+  const handleCopyPaypal = () => {
+    navigator.clipboard.writeText(paypalEmail);
+    setCopiedPaypal(true);
+    setTimeout(() => setCopiedPaypal(false), 2000);
   };
 
   return (
@@ -52,16 +60,16 @@ export default function Donation() {
                   IBAN
                 </span>
                 <button
-                  onClick={handleCopy}
+                  onClick={handleCopyIban}
                   className="group relative flex items-center justify-center gap-2 font-mono text-lg md:text-xl text-stone-600 hover:text-gold transition-colors py-2 px-4 rounded hover:bg-white/50"
                 >
                   <span>{iban}</span>
-                  {copied ? (
+                  {copiedIban ? (
                     <Check className="w-4 h-4 text-green-500" />
                   ) : (
                     <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-stone-400" />
                   )}
-                  {copied && (
+                  {copiedIban && (
                     <span className="absolute -bottom-6 text-[10px] text-green-600 font-sans tracking-wide">
                       {t.copied}
                     </span>
@@ -77,18 +85,30 @@ export default function Donation() {
               <p className="text-stone-500 text-sm max-w-[220px]">
                 {t.paypalDesc}
               </p>
+              <div className="flex flex-col space-y-2">
+                <span className="text-xs uppercase tracking-[0.2em] text-stone-400">
+                  Email
+                </span>
+                <button
+                  onClick={handleCopyPaypal}
+                  className="group relative flex items-center justify-center gap-2 font-mono text-base md:text-lg text-stone-600 hover:text-gold transition-colors py-2 px-4 rounded hover:bg-white/50"
+                >
+                  <span>{paypalEmail}</span>
+                  {copiedPaypal ? (
+                    <Check className="w-4 h-4 text-green-500" />
+                  ) : (
+                    <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-stone-400" />
+                  )}
+                  {copiedPaypal && (
+                    <span className="absolute -bottom-6 text-[10px] text-green-600 font-sans tracking-wide">
+                      {t.copied}
+                    </span>
+                  )}
+                </button>
+              </div>
               <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 max-w-[220px] leading-relaxed">
                 {t.paypalTip}
               </p>
-              <a
-                href="https://paypal.me/KamsiCedric"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-gold text-gold hover:bg-gold hover:text-white px-8 py-3 rounded-full transition-all duration-300 font-serif"
-              >
-                <Wallet className="w-4 h-4" />
-                <span>{t.donate}</span>
-              </a>
             </div>
           </div>
         </div>

@@ -45,6 +45,7 @@ export const metadata: Metadata = {
 import { ModalProvider } from "@/components/providers/ModalProvider";
 import { LanguageProvider } from "@/components/providers/LanguageContext";
 import RSVPModal from "@/components/RSVPModal";
+import Loader from "@/components/Loader";
 
 export default function RootLayout({
   children,
@@ -58,7 +59,7 @@ export default function RootLayout({
       >
         <LanguageProvider>
           <ModalProvider>
-            {children}
+            <Loader>{children}</Loader>
             <RSVPModal />
           </ModalProvider>
         </LanguageProvider>
