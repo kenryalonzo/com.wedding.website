@@ -41,7 +41,7 @@ export const translations = {
     },
     story: {
       title: "Notre Thème",
-      subtitle: "Vase d'Honneur",
+      subtitle: "Un Vase d'Honneur pour Ta Gloire",
       verse:
         "Si donc quelqu'un se conserve pur, en s'abstenant de ces choses, il sera un vase d'honneur, sanctifié, utile à son maître, propre à toute bonne œuvre.",
       verseRef: "— 2 Timothée 2:21 —",
@@ -205,7 +205,7 @@ export const translations = {
     },
     story: {
       title: "Our Theme",
-      subtitle: "Vessel of Honour",
+      subtitle: "A Vase of Honor for Your Glory",
       verse:
         "If a man therefore purge himself from these, he shall be a vessel unto honour, sanctified, and meet for the master's use, and prepared unto every good work.",
       verseRef: "— 2 Timothy 2:21 —",
@@ -367,7 +367,7 @@ export const translations = {
     },
     story: {
       title: "Unser Thema",
-      subtitle: "Ehrengefäß",
+      subtitle: "Ein Ehrengefäß für deinen Ruhm",
       verse:
         "Wenn nun jemand sich reinigt von solchen Leuten, der wird ein Gefäß sein zu ehrenvollem Gebrauch, geheiligt, für den Hausherrn brauchbar und zu allem guten Werk bereitet.",
       verseRef: "— 2. Timotheus 2:21 —",
