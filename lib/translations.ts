@@ -49,7 +49,7 @@ export const translations = {
     donation: {
       title: "Liste de Mariage",
       subtitle:
-        "Votre présence est notre plus beau cadeau. Si vous souhaitez participer à notre nouvelle vie...",
+        "Chère famille, chers amis,\n\nVotre présence à notre mariage est pour nous un immense bonheur.\nSi vous souhaitez nous témoigner votre affection par un cadeau, nous vous serions reconnaissants. Une contribution en argent serait grandement appréciée.\n\nNous vous remercions sincèrement pour votre générosité et votre délicate attention.",
       transfer: "Virement",
       copied: "Copié dans le presse-papier",
       paypalDesc: "Scannez le QR code ou cliquez sur le lien ci-dessous",
@@ -152,8 +152,10 @@ export const translations = {
         intro:
           "Pour honorer la beauté et la solennité de cette union, nous avons choisi le",
         royalBlue: "bleu royal",
-        and: "et l'",
-        gold: "or",
+        and: ", le",
+        gold: "blanc",
+        andGold: "et l'",
+        goldColor: "or",
         asColors: "comme couleurs de la cérémonie.",
         verse:
           "C'est pourquoi je veux qu'en tout lieu les hommes prient en élevant vers le ciel des mains pures, sans colère ni esprit de dispute. 9 Je veux que les femmes agissent de même, en s'habillant décemment, avec discrétion et simplicité. Qu'elles ne se parent pas d'une coiffure recherchée, d'or, de perles ou de toilettes somptueuses",
@@ -211,7 +213,7 @@ export const translations = {
     donation: {
       title: "Wedding Registry",
       subtitle:
-        "Your presence is our greatest gift. If you wish to contribute to our new life...",
+        "Dear family and friends,\n\nYour presence at our wedding is a great joy to us.\nIf you wish to show your affection with a gift, we would be very grateful. A monetary contribution would be greatly appreciated.\n\nWe sincerely thank you for your generosity and your kind attention.",
       transfer: "Bank Transfer",
       copied: "Copied to clipboard",
       paypalDesc: "Scan the QR code or click the link below",
@@ -312,8 +314,10 @@ export const translations = {
         intro:
           "To honor the beauty and solemnity of this union, we have chosen",
         royalBlue: "royal blue",
-        and: "and",
-        gold: "gold",
+        and: ",",
+        gold: "white",
+        andGold: "and",
+        goldColor: "gold",
         asColors: "as the ceremony colors.",
         verse:
           "Therefore I want the men everywhere to pray, lifting up holy hands without anger or disputing. I also want the women to dress modestly, with decency and propriety, adorning themselves, not with elaborate hairstyles or gold or pearls or expensive clothes",
@@ -371,7 +375,7 @@ export const translations = {
     donation: {
       title: "Hochzeitsliste",
       subtitle:
-        "Ihre Anwesenheit ist unser schönstes Geschenk. Wenn Sie zu unserem neuen Leben beitragen möchten...",
+        "Liebe Familie, liebe Freunde,\n\nEure Anwesenheit bei unserer Hochzeit ist für uns eine große Freude.\nWenn ihr uns eure Zuneigung mit einem Geschenk zeigen möchtet, wären wir euch sehr dankbar. Ein Geldbeitrag würde sehr geschätzt werden.\n\nWir danken euch herzlich für eure Großzügigkeit und eure liebevolle Aufmerksamkeit.",
       transfer: "Überweisung",
       copied: "In die Zwischenablage kopiert",
       paypalDesc: "Scannen Sie den QR-Code oder klicken Sie auf den Link unten",
@@ -474,8 +478,10 @@ export const translations = {
         intro:
           "Um die Schönheit und Feierlichkeit dieser Verbindung zu ehren, haben wir",
         royalBlue: "Königsblau",
-        and: "und",
-        gold: "Gold",
+        and: ",",
+        gold: "Weiß",
+        andGold: "und",
+        goldColor: "Gold",
         asColors: "als Farben der Zeremonie gewählt.",
         verse:
           "So will ich nun, dass die Männer beten an allen Orten und aufheben heilige Hände ohne Zorn und Zweifel; desgleichen, dass die Frauen in schicklicher Kleidung sich schmücken mit Anstand und Besonnenheit, nicht mit Haarflechten und Gold oder Perlen oder kostbarem Gewand",

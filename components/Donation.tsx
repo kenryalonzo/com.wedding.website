@@ -33,8 +33,8 @@ export default function Donation() {
               <h2 className="text-3xl md:text-5xl font-serif text-gold mb-6 tracking-wide">
                 {t.title}
               </h2>
-              <p className="text-stone-600 max-w-2xl mx-auto leading-relaxed italic [font-family:var(--font-playfair)] text-lg">
-                &quot;{t.subtitle}&quot;
+              <p className="text-stone-600 max-w-2xl mx-auto leading-relaxed italic [font-family:var(--font-playfair)] text-lg whitespace-pre-line">
+                {t.subtitle}
               </p>
             </div>
 

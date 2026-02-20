@@ -101,6 +101,7 @@ export default function Testimonials() {
                             alt={step.title}
                             fill
                             className="object-cover"
+                            style={{ objectPosition: "30% center" }}
                             sizes="(max-width: 768px) 80vw, 320px"
                           />
                           {/* Overlay with title */}
@@ -213,9 +214,17 @@ export default function Testimonials() {
                   {dc.intro}{" "}
                   <strong className="text-gold font-medium">
                     {dc.royalBlue}
-                  </strong>{" "}
+                  </strong>
                   {dc.and}{" "}
-                  <strong className="text-gold font-medium">{dc.gold}</strong>{" "}
+                  <strong className="text-white font-medium">{dc.gold}</strong>{" "}
+                  {"andGold" in dc && (
+                    <>
+                      {dc.andGold}{" "}
+                      <strong className="text-gold font-medium">
+                        {dc.goldColor}
+                      </strong>{" "}
+                    </>
+                  )}
                   {dc.asColors}
                 </p>
 
