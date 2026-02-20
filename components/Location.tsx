@@ -19,12 +19,8 @@ export default function Location() {
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-xs uppercase tracking-[0.3em] text-gold font-semibold mb-4 block">
-            {t.label}
-          </span>
           <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-4">
-            {t.title}{" "}
-            <span className="text-gold italic">{t.titleHighlight}</span>
+            {t.label}
           </h2>
           <div className="w-16 h-px bg-gold mx-auto mt-4 opacity-60" />
         </div>
@@ -56,9 +52,6 @@ export default function Location() {
           {/* Right: Info + Map */}
           <div className="flex flex-col gap-8">
             {/* Description */}
-            <p className="text-stone-600 leading-relaxed text-lg [font-family:var(--font-cormorant)] pt-2">
-              {t.description}
-            </p>
 
             {/* Address card */}
             <div className="flex items-start gap-4 bg-white/70 backdrop-blur-sm border border-stone-100 rounded-2xl p-5 shadow-sm">
@@ -100,38 +93,6 @@ export default function Location() {
             </div>
           </div>
         </div>
-
-        {/* Ceremony — Full width card */}
-        <ScrollReveal variant="fade-left">
-          <div className="relative group rounded-2xl overflow-hidden shadow-lg border border-stone-100 mb-12">
-            <div className="grid md:grid-cols-2 items-center">
-              {/* Ceremony image */}
-              <div className="relative h-56 md:h-72 overflow-hidden">
-                <Image
-                  src="/lieu-2.jpg"
-                  alt="Ceremony"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-linear-to-r from-transparent to-black/20 md:bg-linear-to-l" />
-              </div>
-
-              {/* Ceremony info */}
-              <div className="bg-white/90 backdrop-blur-sm p-8 md:p-10 flex flex-col justify-center gap-4">
-                <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-gold">
-                  <MapPin className="w-6 h-6" />
-                </div>
-                <h3 className="text-2xl font-serif text-stone-800">
-                  {t.title}{" "}
-                  <span className="text-gold italic">{t.titleHighlight}</span>
-                </h3>
-                <p className="text-stone-500 leading-relaxed [font-family:var(--font-cormorant)] text-lg">
-                  {t.description}
-                </p>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
 
         {/* Parking — Full width card */}
         <ScrollReveal variant="fade-right">
