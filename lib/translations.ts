@@ -49,7 +49,7 @@ export const translations = {
     donation: {
       title: "Liste de Mariage",
       subtitle:
-        "Chère famille, chers amis,\n\nVotre présence à notre mariage est pour nous un immense bonheur.\nSi vous souhaitez nous témoigner votre affection par un cadeau, nous vous serions reconnaissants. Une contribution en argent serait grandement appréciée.\n\nNous vous remercions sincèrement pour votre générosité et votre délicate attention.",
+        "Chère famille, chers amis,\n\nVotre présence à notre mariage est pour nous un immense bonheur.\nSi vous souhaitez nous témoigner votre affection par un cadeau, nous vous serions reconnaissants. Une contribution en argent serait grandement privilégiée.\n\nNous vous remercions sincèrement pour votre générosité et votre délicate attention.",
       transfer: "Virement",
       copied: "Copié dans le presse-papier",
       paypalDesc: "Scannez le QR code ou cliquez sur le lien ci-dessous",
