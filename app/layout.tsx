@@ -40,6 +40,35 @@ export const metadata: Metadata = {
   title: "Cédric & Karelle — Mariage",
   description:
     "Célébrez avec nous le mariage de Cédric et Karelle le 2 mai 2026 à Delmenhorst.",
+  metadataBase: new URL("https://candkwedding.com"),
+  icons: {
+    icon: "/favicon.jpg",
+    apple: "/favicon.jpg",
+  },
+  openGraph: {
+    title: "Cédric & Karelle — Save the Date 💍",
+    description:
+      "Nous avons la joie de vous inviter à célébrer notre mariage le 2 mai 2026 à Delmenhorst. Réservez la date !",
+    url: "https://candkwedding.com",
+    siteName: "Cédric & Karelle — Mariage",
+    images: [
+      {
+        url: "/couple.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cédric & Karelle — Save the Date",
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cédric & Karelle — Save the Date 💍",
+    description:
+      "Nous avons la joie de vous inviter à célébrer notre mariage le 2 mai 2026 à Delmenhorst. Réservez la date !",
+    images: ["/couple.jpg"],
+  },
 };
 
 import { ModalProvider } from "@/components/providers/ModalProvider";
