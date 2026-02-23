@@ -193,53 +193,102 @@ export default function Testimonials() {
           })}
         </div>
 
-        {/* Dress Code Section */}
+        {/* Dress Code Section — Redesigned */}
         <ScrollReveal variant="fade-up">
-          <div className="mt-24 md:mt-32 max-w-3xl mx-auto">
-            <div className="relative bg-linear-to-br from-[#003791] to-[#002a70] text-white p-8 md:p-12 rounded-3xl shadow-2xl overflow-hidden text-center border-4 border-white/10">
-              {/* Decorative Elements */}
-              <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2" />
-              <div className="absolute bottom-0 right-0 w-48 h-48 bg-gold/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+          <div className="mt-24 md:mt-40 max-w-4xl mx-auto">
+            <div className="relative bg-linear-to-br from-[#003791] via-[#002a70] to-[#001d50] text-white rounded-4xl shadow-[0_25px_60px_-12px_rgba(0,55,145,0.4)] border border-white/10 shimmer-wrapper">
+              <div className="shimmer-effect" />
+              {/* Decorative Background Elements */}
+              <div className="absolute top-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+              <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/15 rounded-full blur-3xl translate-x-1/4 translate-y-1/4" />
+              <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-gold/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
 
               <div className="relative z-10">
-                <div className="inline-flex items-center justify-center p-3 bg-white/10 rounded-full mb-6 backdrop-blur-md border border-white/20">
-                  <Info size={24} className="text-gold" />
+                {/* Header Section */}
+                <div className="text-center pt-12 md:pt-16 px-8 md:px-16">
+                  <div className="inline-flex items-center justify-center p-4 bg-white/10 rounded-full mb-8 backdrop-blur-md border border-white/20 shadow-lg shadow-black/10">
+                    <Info size={28} className="text-gold" />
+                  </div>
+
+                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-serif text-gold mb-4 tracking-wide">
+                    {dc.title}
+                  </h3>
+                  <div className="w-20 h-0.5 bg-linear-to-r from-transparent via-gold to-transparent mx-auto mb-10 opacity-60" />
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-serif text-gold mb-6">
-                  {dc.title}
-                </h3>
-
-                <p className="text-blue-50/90 mb-8 leading-relaxed font-light text-lg [font-family:var(--font-cormorant)]">
-                  {dc.intro}{" "}
-                  <strong className="text-gold font-medium">
-                    {dc.royalBlue}
-                  </strong>
-                  {dc.and}{" "}
-                  <strong className="text-white font-medium">{dc.gold}</strong>{" "}
-                  {"andGold" in dc && (
-                    <>
-                      {dc.andGold}{" "}
-                      <strong className="text-gold font-medium">
-                        {dc.goldColor}
-                      </strong>{" "}
-                    </>
-                  )}
-                  {dc.asColors}
-                </p>
-
-                <div className="bg-white/5 p-6 rounded-xl border border-white/10 mb-8 max-w-2xl mx-auto backdrop-blur-sm">
-                  <p className="italic font-serif text-blue-100 text-base md:text-lg mb-4">
-                    &ldquo;{dc.verse}&rdquo;
+                {/* Colors Section */}
+                <div className="px-8 md:px-16 pb-10">
+                  <p className="text-blue-50/90 leading-relaxed font-light text-xl md:text-2xl text-center [font-family:var(--font-cormorant)] mb-8">
+                    {dc.intro}
                   </p>
-                  <cite className="text-sm font-sans uppercase tracking-widest text-gold opacity-80 not-italic">
-                    {dc.verseRef}
-                  </cite>
+
+                  {/* Color Swatches */}
+                  <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 mb-4">
+                    <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 border border-white/15">
+                      <span className="w-5 h-5 rounded-full bg-royal-blue border-2 border-white/40 shadow-inner" />
+                      <span className="text-blue-100 font-medium text-base [font-family:var(--font-cormorant)]">
+                        {dc.royalBlue}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 border border-white/15">
+                      <span className="w-5 h-5 rounded-full bg-white border-2 border-white/40 shadow-inner" />
+                      <span className="text-blue-100 font-medium text-base [font-family:var(--font-cormorant)]">
+                        {dc.gold}
+                      </span>
+                    </div>
+                    {"andGold" in dc && (
+                      <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-5 py-2.5 border border-white/15">
+                        <span className="w-5 h-5 rounded-full bg-linear-to-br from-gold to-[#ffd700] border-2 border-white/40 shadow-inner" />
+                        <span className="text-blue-100 font-medium text-base [font-family:var(--font-cormorant)]">
+                          {dc.goldColor}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <p className="text-blue-200/60 text-sm text-center [font-family:var(--font-cormorant)]">
+                    {dc.asColors}
+                  </p>
                 </div>
 
-                <p className="text-blue-50/80 text-sm md:text-base leading-relaxed max-w-xl mx-auto [font-family:var(--font-cormorant)]">
-                  {renderBoldText(dc.closing, "font-bold text-white")}
-                </p>
+                {/* Divider */}
+                <div className="flex items-center justify-center gap-4 px-8 md:px-16">
+                  <div className="flex-1 h-px bg-linear-to-r from-transparent to-white/15" />
+                  <div className="w-2 h-2 rotate-45 bg-gold/40 border border-gold/30" />
+                  <div className="flex-1 h-px bg-linear-to-l from-transparent to-white/15" />
+                </div>
+
+                {/* Verse Section */}
+                <div className="px-8 md:px-16 py-10">
+                  <div className="bg-white/5 p-8 md:p-10 rounded-2xl border border-white/10 max-w-2xl mx-auto backdrop-blur-sm">
+                    <div className="text-gold/30 text-5xl font-serif leading-none mb-4 select-none">
+                      &ldquo;
+                    </div>
+                    <p className="italic font-serif text-blue-100 text-lg md:text-xl leading-relaxed mb-6 -mt-6">
+                      {dc.verse}
+                    </p>
+                    <cite className="text-sm font-sans uppercase tracking-[0.2em] text-gold opacity-80 not-italic block text-center">
+                      {dc.verseRef}
+                    </cite>
+                  </div>
+                </div>
+
+                {/* Divider */}
+                <div className="flex items-center justify-center gap-4 px-8 md:px-16">
+                  <div className="flex-1 h-px bg-linear-to-r from-transparent to-white/15" />
+                  <div className="w-2 h-2 rotate-45 bg-gold/40 border border-gold/30" />
+                  <div className="flex-1 h-px bg-linear-to-l from-transparent to-white/15" />
+                </div>
+
+                {/* Closing / Important Guidelines — PROMINENT */}
+                <div className="px-8 md:px-16 pt-10 pb-14 md:pb-16">
+                  <div className="max-w-2xl mx-auto text-center">
+                    <div className="bg-white/8 rounded-2xl p-8 md:p-10 border border-gold/20 shadow-inner">
+                      <p className="text-blue-50 text-xl md:text-2xl lg:text-[1.6rem] leading-relaxed [font-family:var(--font-cormorant)] font-light">
+                        {renderBoldText(dc.closing, "font-bold text-white")}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
