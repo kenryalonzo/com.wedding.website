@@ -72,12 +72,10 @@ export const translations = {
       },
     },
     guestbook: {
-      label: "Vos mots doux",
-      title: "Livre d'Or",
-      emptyState:
-        "Aucun message pour le moment. Laissez-nous un petit mot en réservant votre place !",
-      thanks: "Merci pour vos vœux de bonheur",
-      leaveMessage: "Laisser un message",
+      label: "Remerciements",
+      title: "Merci !",
+      message:
+        "Nous sommes profondément touchés par vos vœux, vos prières et votre amour. Vos mots doux remplissent nos cœurs de joie et nous rappellent combien nous sommes bénis d'être si bien entourés. Merci de partager avec nous ce Vase d'Honneur pour la gloire de Dieu.",
     },
     rsvp: {
       title: "Réservez votre place",
@@ -235,11 +233,10 @@ export const translations = {
       },
     },
     guestbook: {
-      label: "Your sweet words",
-      title: "Guestbook",
-      emptyState: "No messages yet. Leave us a note when you RSVP!",
-      thanks: "Thank you for your kind wishes",
-      leaveMessage: "Leave a message",
+      label: "Acknowledgments",
+      title: "Thank You!",
+      message:
+        "We are deeply touched by your wishes, your prayers, and your love. Your sweet words fill our hearts with joy and remind us how blessed we are to be surrounded by such wonderful family and friends. Thank you for sharing with us this Vase of Honor for the glory of God.",
     },
     rsvp: {
       title: "Reserve your seat",
@@ -398,12 +395,10 @@ export const translations = {
       },
     },
     guestbook: {
-      label: "Ihre lieben Worte",
-      title: "Gästebuch",
-      emptyState:
-        "Noch keine Nachrichten. Hinterlassen Sie uns eine Nachricht bei Ihrer Zusage!",
-      thanks: "Vielen Dank für Ihre guten Wünsche",
-      leaveMessage: "Nachricht hinterlassen",
+      label: "Danksagung",
+      title: "Danke!",
+      message:
+        "Wir sind tief berührt von Ihren Wünschen, Ihren Gebeten und Ihrer Liebe. Ihre lieben Worte erfüllen unsere Herzen mit Freude und erinnern uns daran, wie gesegnet wir sind, von so einer wunderbaren Familie und solchen Freunden umgeben zu sein. Danke, dass Sie mit uns dieses Ehrengefäß zur Ehre Gottes teilen.",
     },
     rsvp: {
       title: "Reservieren Sie Ihren Platz",

@@ -257,114 +257,192 @@ export default function AdminDashboard({
               </p>
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-stone-50/80">
-                    <th className="text-left px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
-                      Nom
-                    </th>
-                    <th className="text-left px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
-                      Email
-                    </th>
-                    <th className="text-center px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
-                      Personnes
-                    </th>
-                    <th className="text-left px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
-                      Message
-                    </th>
-                    <th className="text-left px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
-                      Date
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-stone-100/80">
-                  {guests.map((guest) => (
-                    <tr
-                      key={guest.id}
-                      className="hover:bg-gold/5 transition-colors"
-                    >
-                      <td className="px-6 py-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-linear-to-br from-gold/20 to-gold/5 flex items-center justify-center text-gold font-serif text-sm font-bold border border-gold/20">
-                            {guest.name.charAt(0).toUpperCase()}
-                          </div>
-                          <span className="font-medium text-stone-700">
-                            {guest.name}
-                          </span>
-                        </div>
-                      </td>
-                      <td className="px-6 py-4">
-                        <button
-                          onClick={() => copyEmail(guest.email, guest.id)}
-                          className="group flex items-center gap-2 text-stone-600 hover:text-gold transition-colors cursor-pointer"
-                        >
-                          <span className="font-mono text-sm">
-                            {guest.email}
-                          </span>
-                          {copiedId === guest.id ? (
-                            <Check className="w-3.5 h-3.5 text-green-500" />
-                          ) : (
-                            <Copy className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
-                          )}
-                        </button>
-                      </td>
-                      <td className="px-6 py-4 text-center">
-                        <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-50 text-blue-700 rounded-lg font-medium text-sm">
-                          {guest.count}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <span className="text-stone-500 text-sm max-w-[200px] truncate block">
-                          {guest.wishes || "—"}
-                        </span>
-                      </td>
-                      <td className="px-6 py-4">
-                        <div className="flex items-center gap-1.5 text-stone-400 text-sm">
-                          <Calendar className="w-3.5 h-3.5" />
-                          {format(new Date(guest.createdAt), "d MMM yyyy", {
-                            locale: fr,
-                          })}
-                        </div>
-                      </td>
+            <>
+              {/* Desktop Table View */}
+              <div className="hidden md:block overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="bg-stone-50/80">
+                      <th className="text-left px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
+                        Nom
+                      </th>
+                      <th className="text-left px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
+                        Email
+                      </th>
+                      <th className="text-center px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
+                        Personnes
+                      </th>
+                      <th className="text-left px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
+                        Message
+                      </th>
+                      <th className="text-left px-6 py-4 text-xs uppercase tracking-wider text-stone-500 font-sans">
+                        Date
+                      </th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody className="divide-y divide-stone-100/80">
+                    {guests.map((guest) => (
+                      <tr
+                        key={guest.id}
+                        className="hover:bg-gold/5 transition-colors"
+                      >
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-linear-to-br from-gold/20 to-gold/5 flex items-center justify-center text-gold font-serif text-sm font-bold border border-gold/20">
+                              {guest.name.charAt(0).toUpperCase()}
+                            </div>
+                            <span className="font-medium text-stone-700">
+                              {guest.name}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <button
+                            onClick={() => copyEmail(guest.email, guest.id)}
+                            className="group flex items-center gap-2 text-stone-600 hover:text-gold transition-colors cursor-pointer"
+                          >
+                            <span className="font-mono text-sm">
+                              {guest.email}
+                            </span>
+                            {copiedId === guest.id ? (
+                              <Check className="w-3.5 h-3.5 text-green-500" />
+                            ) : (
+                              <Copy className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                            )}
+                          </button>
+                        </td>
+                        <td className="px-6 py-4 text-center">
+                          <span className="inline-flex items-center justify-center w-8 h-8 bg-blue-50 text-blue-700 rounded-lg font-medium text-sm">
+                            {guest.count}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className="text-stone-500 text-sm max-w-[200px] truncate block">
+                            {guest.wishes || "—"}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-1.5 text-stone-400 text-sm">
+                            <Calendar className="w-3.5 h-3.5" />
+                            {format(new Date(guest.createdAt), "d MMM yyyy", {
+                              locale: fr,
+                            })}
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Mobile Cards View */}
+              <div className="md:hidden divide-y divide-stone-100 border-t border-stone-100">
+                {guests.map((guest) => (
+                  <div
+                    key={guest.id}
+                    className="p-5 hover:bg-gold/5 transition-colors"
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 shrink-0 rounded-full bg-linear-to-br from-gold/20 to-gold/5 flex items-center justify-center text-gold font-serif text-lg font-bold border border-gold/20">
+                          {guest.name.charAt(0).toUpperCase()}
+                        </div>
+                        <div className="min-w-0">
+                          <h3 className="font-medium text-stone-800 truncate">
+                            {guest.name}
+                          </h3>
+                          <div className="flex items-center gap-1.5 text-stone-500 text-sm mt-0.5">
+                            <button
+                              onClick={() => copyEmail(guest.email, guest.id)}
+                              className="group flex items-center gap-1.5 hover:text-gold transition-colors text-left"
+                            >
+                              <Mail className="w-3.5 h-3.5 shrink-0" />
+                              <span className="truncate max-w-[150px]">
+                                {guest.email}
+                              </span>
+                              {copiedId === guest.id ? (
+                                <Check className="w-3.5 h-3.5 text-green-500 shrink-0" />
+                              ) : (
+                                <Copy className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 shrink-0" />
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <span className="inline-flex items-center justify-center shrink-0 min-w-8 h-8 px-2 bg-blue-50 text-blue-700 rounded-lg font-medium text-sm mb-auto">
+                        {guest.count}{" "}
+                        <Users className="w-3.5 h-3.5 ml-1 inline" />
+                      </span>
+                    </div>
+                    {guest.wishes && (
+                      <div className="bg-stone-50 rounded-xl p-3 mb-3 border border-stone-100 relative mt-2">
+                        <MessageSquare className="w-3 h-3 text-gold/40 absolute top-3 left-3" />
+                        <p className="text-stone-600 text-sm italic pl-5">
+                          &ldquo;{guest.wishes}&rdquo;
+                        </p>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-1.5 text-stone-400 text-xs mt-3 border-t border-stone-100/50 pt-2">
+                      <Calendar className="w-3.5 h-3.5" />
+                      {format(
+                        new Date(guest.createdAt),
+                        "d MMM yyyy 'à' HH:mm",
+                        {
+                          locale: fr,
+                        },
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </>
           )}
         </div>
 
         {/* Messages Section */}
         {messages.length > 0 && (
-          <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-gold/10 shadow-sm overflow-hidden">
-            <div className="p-6 border-b border-stone-100">
+          <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-gold/10 shadow-sm overflow-hidden mt-8">
+            <div className="p-6 border-b border-stone-100 bg-white/50">
               <h2 className="text-xl font-serif text-stone-800 flex items-center gap-2">
                 <MessageSquare className="w-5 h-5 text-gold" />
                 Messages du Livre d&apos;Or
               </h2>
             </div>
-            <div className="divide-y divide-stone-100/80">
-              {messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className="p-6 hover:bg-gold/5 transition-colors"
-                >
-                  <p className="text-stone-600 italic font-serif mb-3 leading-relaxed">
-                    &ldquo;{msg.content}&rdquo;
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-stone-700">
-                      — {msg.name}
-                    </span>
-                    <span className="text-xs text-stone-400">
-                      {format(new Date(msg.createdAt), "d MMM yyyy", {
-                        locale: fr,
-                      })}
-                    </span>
+            <div className="p-6 bg-stone-50/30">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {messages.map((msg) => (
+                  <div
+                    key={msg.id}
+                    className="relative bg-white p-6 rounded-2xl shadow-sm border border-gold/10 hover:shadow-md transition-shadow group flex flex-col"
+                  >
+                    <div className="absolute -top-3 left-6 bg-gold/10 p-2 rounded-full border border-gold/20">
+                      <MessageSquare className="w-3.5 h-3.5 text-gold" />
+                    </div>
+                    <blockquote className="text-stone-600 italic font-serif mt-2 mb-6 leading-relaxed text-sm flex-1">
+                      <span className="text-3xl text-gold/20 font-serif leading-none select-none mr-1 block -mb-2">
+                        &ldquo;
+                      </span>
+                      {msg.content}
+                    </blockquote>
+                    <div className="flex items-center justify-between border-t border-stone-50 pt-4 mt-auto">
+                      <div className="flex items-center gap-2">
+                        <div className="w-7 h-7 rounded-full bg-linear-to-br from-gold/20 to-gold/5 flex items-center justify-center text-gold font-serif text-xs font-bold border border-gold/20">
+                          {msg.name.charAt(0).toUpperCase()}
+                        </div>
+                        <span className="text-sm font-medium text-stone-700">
+                          {msg.name}
+                        </span>
+                      </div>
+                      <span className="text-xs text-stone-400 flex items-center gap-1">
+                        <Calendar className="w-3 h-3" />
+                        {format(new Date(msg.createdAt), "d MMM yyyy", {
+                          locale: fr,
+                        })}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         )}

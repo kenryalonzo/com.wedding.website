@@ -8,13 +8,10 @@ import Location from "@/components/Location";
 import Donation from "@/components/Donation";
 import Guestbook from "@/components/Guestbook";
 import Footer from "@/components/Footer";
-import { getMessages } from "@/app/actions";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const messages = await getMessages();
-
   return (
     <main className="min-h-screen bg-transparent text-stone-800 font-sans selection:bg-gold selection:text-white relative">
       <Navbar />
@@ -27,7 +24,7 @@ export default async function Home() {
 
       <Donation />
 
-      <Guestbook messages={messages} />
+      <Guestbook />
 
       <Location />
 
