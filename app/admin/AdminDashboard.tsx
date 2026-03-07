@@ -13,9 +13,7 @@ import {
   MessageSquare,
   Calendar,
   Download,
-  Trash2,
 } from "lucide-react";
-import { clearAllData } from "@/app/actions";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
 
@@ -34,7 +32,6 @@ export default function AdminDashboard({
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [clearing, setClearing] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,19 +74,6 @@ export default function AdminDashboard({
       `invites_mariage_${format(new Date(), "yyyy-MM-dd")}.csv`,
     );
     link.click();
-  };
-
-  const handleClearData = async () => {
-    if (
-      !confirm(
-        "⚠️ Êtes-vous sûr de vouloir supprimer toutes les données ? Cette action est irréversible.",
-      )
-    )
-      return;
-    setClearing(true);
-    await clearAllData();
-    setClearing(false);
-    window.location.reload();
   };
 
   const totalGuests = guests.reduce((sum, g) => sum + g.count, 0);
@@ -223,20 +207,10 @@ export default function AdminDashboard({
           <button
             onClick={exportCSV}
             disabled={guests.length === 0}
-            className="inline-flex items-center gap-2 bg-white/80 border border-gold/20 text-stone-700 hover:bg-gold hover:text-white px-5 py-3 rounded-xl transition-all duration-300 text-sm font-sans disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+            className="inline-flex items-center gap-2 bg-white/80 border border-gold/20 text-stone-700 hover:bg-gold hover:text-white px-5 py-3 rounded-xl transition-all duration-300 text-sm font-sans disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ml-auto"
           >
             <Download className="w-4 h-4" />
             Exporter CSV
-          </button>
-          <button
-            onClick={handleClearData}
-            disabled={
-              clearing || (guests.length === 0 && messages.length === 0)
-            }
-            className="inline-flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 hover:bg-red-600 hover:text-white hover:border-red-600 px-5 py-3 rounded-xl transition-all duration-300 text-sm font-sans disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ml-auto"
-          >
-            <Trash2 className="w-4 h-4" />
-            {clearing ? "Suppression..." : "Vider la base de données"}
           </button>
         </div>
 
