@@ -17,12 +17,12 @@ export async function submitRSVP(values: z.infer<typeof formSchema>) {
   try {
     const validatedFields = formSchema.parse(values);
 
-    // Check deadlines (March 30, 2026)
-    const deadline = new Date("2026-03-30");
+    // Check deadlines (April 8, 2026)
+    const deadline = new Date("2026-04-08");
     if (new Date() > deadline) {
       return {
         success: false,
-        message: "Les inscriptions sont fermées depuis le 30 mars 2026.",
+        message: "Les inscriptions sont fermées depuis le 8 avril 2026.",
       };
     }
 
@@ -50,6 +50,26 @@ export async function submitRSVP(values: z.infer<typeof formSchema>) {
     return { success: true, message: "Inscription réussie !" };
   } catch (error) {
     console.error("RSVP Error:", error);
+
+    if (error instanceof z.ZodError) {
+      return {
+        success: false,
+        message: "Les informations fournies sont invalides.",
+      };
+    }
+
+    if (
+      error &&
+      typeof error === "object" &&
+      "code" in error &&
+      error.code === "P2002"
+    ) {
+      return {
+        success: false,
+        message: "Cet e-mail a déjà été utilisé pour une réservation.",
+      };
+    }
+
     return {
       success: false,
       message: "Une erreur est survenue lors de l'enregistrement.",

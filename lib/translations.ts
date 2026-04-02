@@ -79,7 +79,7 @@ export const translations = {
     },
     rsvp: {
       title: "Réservez votre place",
-      subtitle: "Confirmez votre présence avant le 30 Mars 2026",
+      subtitle: "Confirmez votre présence avant le 8 Avril 2026",
       nameLabel: "Nom complet",
       namePlaceholder: "Ex: Jean Dupont",
       emailLabel: "Email",
@@ -240,7 +240,7 @@ export const translations = {
     },
     rsvp: {
       title: "Reserve your seat",
-      subtitle: "Confirm your attendance before March 30, 2026",
+      subtitle: "Confirm your attendance before April 8, 2026",
       nameLabel: "Full name",
       namePlaceholder: "e.g. John Smith",
       emailLabel: "Email",
@@ -402,7 +402,7 @@ export const translations = {
     },
     rsvp: {
       title: "Reservieren Sie Ihren Platz",
-      subtitle: "Bestätigen Sie Ihre Teilnahme bis zum 30. März 2026",
+      subtitle: "Bestätigen Sie Ihre Teilnahme bis zum 8. April 2026",
       nameLabel: "Vollständiger Name",
       namePlaceholder: "z.B. Max Mustermann",
       emailLabel: "E-Mail",
