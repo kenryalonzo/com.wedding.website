@@ -72,10 +72,15 @@ export const translations = {
       },
     },
     guestbook: {
-      label: "Remerciements",
+      label: "Livre d'Or",
       title: "Merci !",
       message:
         "Nous sommes profondément touchés par vos vœux, vos prières et votre amour. Vos mots doux remplissent nos cœurs de joie et nous rappellent combien nous sommes bénis d'être si bien entourés. Merci de partager avec nous ce Vase d'Honneur pour la gloire de Dieu.",
+      coverLabel: "Livre d'Or",
+      coverTitle: "Laissez une trace",
+      writtenBy: "Écrit par ",
+      from: "De la part de",
+      dateLabel: "Le",
     },
     rsvp: {
       title: "Réservez votre place",
@@ -233,10 +238,15 @@ export const translations = {
       },
     },
     guestbook: {
-      label: "Acknowledgments",
+      label: "Guestbook",
       title: "Thank You!",
       message:
         "We are deeply touched by your wishes, your prayers, and your love. Your sweet words fill our hearts with joy and remind us how blessed we are to be surrounded by such wonderful family and friends. Thank you for sharing with us this Vase of Honor for the glory of God.",
+      coverLabel: "Guestbook",
+      coverTitle: "Leave a message",
+      writtenBy: "Written by ",
+      from: "From",
+      dateLabel: "On",
     },
     rsvp: {
       title: "Reserve your seat",
@@ -395,10 +405,15 @@ export const translations = {
       },
     },
     guestbook: {
-      label: "Danksagung",
+      label: "Gästebuch",
       title: "Danke!",
       message:
         "Wir sind tief berührt von Ihren Wünschen, Ihren Gebeten und Ihrer Liebe. Ihre lieben Worte erfüllen unsere Herzen mit Freude und erinnern uns daran, wie gesegnet wir sind, von so einer wunderbaren Familie und solchen Freunden umgeben zu sein. Danke, dass Sie mit uns dieses Ehrengefäß zur Ehre Gottes teilen.",
+      coverLabel: "Gästebuch",
+      coverTitle: "Schreiben Sie uns",
+      writtenBy: "Geschrieben von ",
+      from: "Von",
+      dateLabel: "Am",
     },
     rsvp: {
       title: "Reservieren Sie Ihren Platz",
