@@ -73,7 +73,7 @@ export const translations = {
     },
     guestbook: {
       label: "Livre d'Or",
-      title: "Merci !",
+      title: "Livre d'Or",
       message:
         "Nous sommes profondément touchés par vos vœux, vos prières et votre amour. Vos mots doux remplissent nos cœurs de joie et nous rappellent combien nous sommes bénis d'être si bien entourés. Merci de partager avec nous ce Vase d'Honneur pour la gloire de Dieu.",
       coverLabel: "Livre d'Or",
@@ -81,6 +81,7 @@ export const translations = {
       writtenBy: "Écrit par ",
       from: "De la part de",
       dateLabel: "Le",
+      pageLabel: "Page",
     },
     rsvp: {
       title: "Réservez votre place",
@@ -239,7 +240,7 @@ export const translations = {
     },
     guestbook: {
       label: "Guestbook",
-      title: "Thank You!",
+      title: "Guestbook",
       message:
         "We are deeply touched by your wishes, your prayers, and your love. Your sweet words fill our hearts with joy and remind us how blessed we are to be surrounded by such wonderful family and friends. Thank you for sharing with us this Vase of Honor for the glory of God.",
       coverLabel: "Guestbook",
@@ -247,6 +248,7 @@ export const translations = {
       writtenBy: "Written by ",
       from: "From",
       dateLabel: "On",
+      pageLabel: "Page",
     },
     rsvp: {
       title: "Reserve your seat",
@@ -406,7 +408,7 @@ export const translations = {
     },
     guestbook: {
       label: "Gästebuch",
-      title: "Danke!",
+      title: "Gästebuch",
       message:
         "Wir sind tief berührt von Ihren Wünschen, Ihren Gebeten und Ihrer Liebe. Ihre lieben Worte erfüllen unsere Herzen mit Freude und erinnern uns daran, wie gesegnet wir sind, von so einer wunderbaren Familie und solchen Freunden umgeben zu sein. Danke, dass Sie mit uns dieses Ehrengefäß zur Ehre Gottes teilen.",
       coverLabel: "Gästebuch",
@@ -414,6 +416,7 @@ export const translations = {
       writtenBy: "Geschrieben von ",
       from: "Von",
       dateLabel: "Am",
+      pageLabel: "Seite",
     },
     rsvp: {
       title: "Reservieren Sie Ihren Platz",

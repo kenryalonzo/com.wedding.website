@@ -34,7 +34,7 @@ export default function Guestbook({ messages }: { messages: Message[] }) {
               <Sparkles className="w-4 h-4 text-gold" />
             </div>
             <h2 className="text-4xl md:text-5xl font-serif text-stone-800 mb-6 relative inline-block">
-              {t.title}
+              {t.label}
               <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-[2px] bg-linear-to-r from-transparent via-gold to-transparent" />
             </h2>
           </div>
