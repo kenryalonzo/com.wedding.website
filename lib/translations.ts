@@ -4,7 +4,7 @@ export const translations = {
   fr: {
     nav: {
       home: "Accueil",
-      saveTheDate: "Date",
+      saveTheDate: "Vos Vœux",
       story: "Notre Histoire",
       info: "Infos",
       gallery: "Galerie",
@@ -26,9 +26,9 @@ export const translations = {
       siteBy: "Site réalisé par",
     },
     saveTheDate: {
-      label: "Réservez la date",
-      title1: "Save the",
-      title2: "Date",
+      label: "Vos Vœux",
+      title1: "Vos",
+      title2: "Vœux",
       date: "2 Mai 2026",
       location: "Delmenhorst, Allemagne",
       quote: "Nous serions honorés de célébrer ce jour avec vous",
@@ -169,7 +169,7 @@ export const translations = {
   en: {
     nav: {
       home: "Home",
-      saveTheDate: "Date",
+      saveTheDate: "Your Wishes",
       story: "Our Story",
       info: "Info",
       gallery: "Gallery",
@@ -191,9 +191,9 @@ export const translations = {
       siteBy: "Site made by",
     },
     saveTheDate: {
-      label: "Save the date",
-      title1: "Save the",
-      title2: "Date",
+      label: "Your Wishes",
+      title1: "Your",
+      title2: "Wishes",
       date: "May 2, 2026",
       location: "Delmenhorst, Germany",
       quote: "We would be honored to celebrate this day with you",
@@ -333,7 +333,7 @@ export const translations = {
   de: {
     nav: {
       home: "Startseite",
-      saveTheDate: "Datum",
+      saveTheDate: "Ihre Wünsche",
       story: "Unsere Geschichte",
       info: "Infos",
       gallery: "Galerie",
@@ -355,9 +355,9 @@ export const translations = {
       siteBy: "Website erstellt von",
     },
     saveTheDate: {
-      label: "Datum merken",
-      title1: "Save the",
-      title2: "Date",
+      label: "Ihre Wünsche",
+      title1: "Ihre",
+      title2: "Wünsche",
       date: "2. Mai 2026",
       location: "Delmenhorst, Deutschland",
       quote: "Wir würden uns freuen, diesen Tag mit Ihnen zu feiern",
