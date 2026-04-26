@@ -38,7 +38,7 @@ export async function submitRSVP(values: { name: string; message: string }) {
     if (error instanceof z.ZodError) {
       return {
         success: false,
-        message: error.errors[0]?.message ?? "Les informations fournies sont invalides.",
+        message: error.issues[0]?.message ?? "Les informations fournies sont invalides.",
       };
     }
 
