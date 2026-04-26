@@ -71,7 +71,7 @@ export default function SaveTheDate() {
                   onClick={openRSVP}
                   className="group inline-flex items-center gap-3 bg-gold hover:bg-[#e08a00] text-white font-sans uppercase tracking-[0.2em] px-10 py-5 rounded-sm transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 cursor-pointer"
                 >
-                  <span>RSVP</span>
+                  <span>{translations[language].nav.rsvp}</span>
                   <svg
                     className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
                     fill="none"
