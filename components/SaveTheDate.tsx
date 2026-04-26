@@ -50,7 +50,7 @@ export default function SaveTheDate() {
                 <div className="w-12 h-[2px] bg-linear-to-l from-transparent to-gold md:hidden" />
               </div>
 
-              <h2 className="text-5xl md:text-6xl font-serif text-gold tracking-tight leading-tight">
+              <h2 className="text-3xl md:text-4xl font-serif text-gold tracking-tight leading-tight">
                 {t.title1}
                 <span className="block text-gold italic mt-2">{t.title2}</span>
               </h2>
