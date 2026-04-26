@@ -1,6 +1,6 @@
 "use client";
 
-import { X, Send, Loader2 } from "lucide-react";
+import { X, Send, Loader2, Heart } from "lucide-react";
 import { useEffect, useState } from "react";
 import { submitRSVP } from "@/app/actions";
 import { useModal } from "@/components/providers/ModalProvider";
@@ -13,16 +13,12 @@ export default function RSVPModal() {
   const { language } = useLanguage();
   const t = translations[language].rsvp;
 
-  const [rsvp, setRsvp] = useState({
-    fullName: "",
-    email: "",
-    count: 1,
-    message: "",
-  });
-  const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: "", message: "" });
+  const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  // Fermeture au clavier
   useEffect(() => {
     if (!isOpen) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -32,16 +28,10 @@ export default function RSVPModal() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isOpen, onClose]);
 
-  // Prevent scroll when modal is open
+  // Bloquer le scroll quand la modale est ouverte
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    return () => { document.body.style.overflow = "unset"; };
   }, [isOpen]);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -51,24 +41,20 @@ export default function RSVPModal() {
     setErrorMessage(null);
     setIsSubmitting(true);
 
-    const formData = {
-      name: rsvp.fullName,
-      email: rsvp.email,
-      count: Number(rsvp.count),
-      wishes: rsvp.message,
-    };
-
     try {
-      const result = await submitRSVP(formData);
+      const result = await submitRSVP({
+        name: form.name.trim(),
+        message: form.message.trim(),
+      });
 
       setIsSubmitting(false);
 
       if (!result.success) {
-        setErrorMessage(result.message || t.errorGeneric);
+        setErrorMessage(result.message ?? t.errorGeneric);
         return;
       }
 
-      setRsvpSubmitted(true);
+      setSubmitted(true);
     } catch {
       setIsSubmitting(false);
       setErrorMessage(t.errorConnection);
@@ -81,100 +67,74 @@ export default function RSVPModal() {
     <div className="fixed inset-0 z-100 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
         onClick={onClose}
       />
 
       {/* Modal */}
-      <div className="relative z-10 w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-xl bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-300 border border-gold/20">
+      <div className="relative z-10 w-full max-w-md rounded-2xl bg-white shadow-2xl animate-in fade-in zoom-in-95 duration-300 border border-gold/20 overflow-hidden">
+        {/* Decorative top band */}
+        <div className="h-1.5 w-full bg-gradient-to-r from-gold/60 via-gold to-amber-300" />
+
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-20 rounded-full bg-stone-100 p-2 text-stone-500 transition-colors hover:bg-stone-200"
+          className="absolute right-4 top-5 z-20 rounded-full bg-stone-100 p-1.5 text-stone-400 transition-colors hover:bg-stone-200 hover:text-stone-600"
+          aria-label="Fermer"
         >
-          <X className="h-5 w-5" />
+          <X className="h-4 w-4" />
         </button>
 
-        <div className="p-6 sm:p-8">
-          {!rsvpSubmitted ? (
+        <div className="px-6 py-7 sm:px-8 sm:py-8">
+          {!submitted ? (
             <>
               {/* Header */}
-              <div className="mb-8 text-center">
-                <h2 className="font-serif text-3xl font-bold text-gold mb-2">
+              <div className="mb-7 text-center">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gold/10 mb-4">
+                  <Heart className="w-5 h-5 text-gold fill-gold/30" />
+                </div>
+                <h2 className="font-serif text-2xl font-bold text-stone-800 mb-1.5">
                   {t.title}
                 </h2>
-                <p className="text-stone-500 text-sm">{t.subtitle}</p>
+                <p className="text-stone-400 text-sm leading-relaxed max-w-xs mx-auto">
+                  {t.subtitle}
+                </p>
               </div>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 {errorMessage && (
                   <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
                     {errorMessage}
                   </div>
                 )}
 
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-stone-700">
+                {/* Nom */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-stone-500">
                     {t.nameLabel}
                   </label>
                   <input
-                    value={rsvp.fullName}
-                    onChange={(e) =>
-                      setRsvp((s) => ({ ...s, fullName: e.target.value }))
-                    }
+                    value={form.name}
+                    onChange={(e) => setForm((s) => ({ ...s, name: e.target.value }))}
                     required
-                    className="w-full h-11 rounded-lg border border-stone-300 bg-white px-4 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-1 focus:ring-gold"
+                    minLength={2}
+                    className="w-full h-11 rounded-xl border border-stone-200 bg-stone-50 px-4 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-2 focus:ring-gold/20 focus:bg-white"
                     placeholder={t.namePlaceholder}
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-stone-700">
-                    {t.emailLabel}
-                  </label>
-                  <input
-                    type="email"
-                    value={rsvp.email}
-                    onChange={(e) =>
-                      setRsvp((s) => ({ ...s, email: e.target.value }))
-                    }
-                    required
-                    className="w-full h-11 rounded-lg border border-stone-300 bg-white px-4 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-1 focus:ring-gold"
-                    placeholder={t.emailPlaceholder}
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-stone-700">
-                    {t.countLabel}
-                  </label>
-                  <input
-                    type="number"
-                    min={1}
-                    max={10}
-                    value={rsvp.count}
-                    onChange={(e) =>
-                      setRsvp((s) => ({
-                        ...s,
-                        count: Number(e.target.value),
-                      }))
-                    }
-                    className="w-full h-11 rounded-lg border border-stone-300 bg-white px-4 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-1 focus:ring-gold"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-stone-700">
+                {/* Message */}
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-stone-500">
                     {t.messageLabel}
                   </label>
                   <textarea
-                    value={rsvp.message}
-                    onChange={(e) =>
-                      setRsvp((s) => ({ ...s, message: e.target.value }))
-                    }
-                    rows={4}
-                    className="w-full rounded-lg border border-stone-300 bg-white px-4 py-3 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-1 focus:ring-gold resize-none"
+                    value={form.message}
+                    onChange={(e) => setForm((s) => ({ ...s, message: e.target.value }))}
+                    required
+                    rows={5}
+                    className="w-full rounded-xl border border-stone-200 bg-stone-50 px-4 py-3 text-sm text-stone-800 outline-none transition-all focus:border-gold focus:ring-2 focus:ring-gold/20 focus:bg-white resize-none leading-relaxed"
                     placeholder={t.messagePlaceholder}
                   />
                 </div>
@@ -183,8 +143,8 @@ export default function RSVPModal() {
                   type="submit"
                   disabled={isSubmitting}
                   className={cn(
-                    "mt-4 w-full h-12 flex items-center justify-center gap-2 rounded-full bg-gold text-white font-serif font-bold tracking-wide shadow-md transition-all hover:bg-[#e08a00] hover:shadow-lg",
-                    isSubmitting ? "opacity-70 cursor-wait" : "",
+                    "mt-2 w-full h-12 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold to-amber-400 text-white font-semibold tracking-wide shadow-md transition-all hover:shadow-lg hover:opacity-90 active:scale-[0.98]",
+                    isSubmitting && "opacity-60 cursor-wait",
                   )}
                 >
                   {isSubmitting ? (
@@ -203,32 +163,19 @@ export default function RSVPModal() {
             </>
           ) : (
             /* Success State */
-            <div className="text-center py-12">
-              <div className="mx-auto w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6 animate-in zoom-in duration-300">
-                <svg
-                  className="w-10 h-10 text-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
+            <div className="text-center py-8">
+              <div className="mx-auto w-20 h-20 rounded-full bg-gold/10 flex items-center justify-center mb-5 animate-in zoom-in duration-500">
+                <Heart className="w-9 h-9 text-gold fill-gold/40" />
               </div>
-              <h3 className="font-serif text-3xl text-gold mb-4">
-                {t.successTitle} {rsvp.fullName} !
+              <h3 className="font-serif text-2xl text-stone-800 mb-3">
+                {t.successTitle}, {form.name} !
               </h3>
-              <p className="text-stone-600 mb-8 max-w-xs mx-auto">
+              <p className="text-stone-500 text-sm mb-8 max-w-xs mx-auto leading-relaxed">
                 {t.successMessage}
               </p>
-
               <button
                 onClick={onClose}
-                className="inline-flex items-center justify-center rounded-full border border-stone-300 bg-white px-8 py-3 text-sm font-semibold text-stone-700 shadow-sm transition-colors hover:bg-stone-50"
+                className="inline-flex items-center justify-center rounded-full border border-stone-200 bg-white px-8 py-3 text-sm font-semibold text-stone-600 shadow-sm transition-colors hover:bg-stone-50 hover:border-stone-300"
               >
                 {t.close}
               </button>

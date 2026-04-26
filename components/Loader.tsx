@@ -39,7 +39,7 @@ export default function Loader({ children }: { children: React.ReactNode }) {
     const minTime = setTimeout(() => {
       setIsFadingOut(true);
       setTimeout(() => setIsLoading(false), 1000);
-    }, 3800);
+    }, 2200); // Réduit de 3800ms → 2200ms pour un accès plus rapide au contenu
 
     return () => clearTimeout(minTime);
   }, []);

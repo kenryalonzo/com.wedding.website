@@ -6,14 +6,14 @@ import SaveTheDate from "@/components/SaveTheDate";
 import Testimonials from "@/components/Testimonials";
 import Location from "@/components/Location";
 import Donation from "@/components/Donation";
-import Guestbook from "@/components/Guestbook";
+// import Guestbook from "@/components/Guestbook"; // 🔇 Temporairement désactivé (perf)
 import Footer from "@/components/Footer";
-import { getMessages } from "@/app/actions";
 
-export const dynamic = "force-dynamic";
+// 🚀 Page statique (ISR) — le livre d'or étant désactivé, plus besoin de force-dynamic.
+// Réactiver avec : export const revalidate = 60; quand le guestbook reviendra.
+export const revalidate = false; // cache statique indéfini (rebuild only)
 
 export default async function Home() {
-  const messages = await getMessages();
   return (
     <main className="min-h-screen bg-transparent text-stone-800 font-sans selection:bg-gold selection:text-white relative">
       <Navbar />
@@ -26,7 +26,10 @@ export default async function Home() {
 
       <Donation />
 
-      <Guestbook messages={messages} />
+      {/* <Guestbook messages={[]} /> */}
+      {/* 🔇 Livre d'or temporairement désactivé pour les performances */}
+      {/* Pour réactiver : décommenter l'import Guestbook, cette ligne,  */}
+      {/* supprimer revalidate=false et remettre export const dynamic = 'force-dynamic' */}
 
       <Location />
 

@@ -1,78 +1,50 @@
 "use server";
 
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-const prisma = new PrismaClient();
-
-const formSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  count: z.number().min(1).max(10),
-  wishes: z.string().optional(),
+const messageSchema = z.object({
+  name: z.string().min(2, "Le nom doit contenir au moins 2 caractères."),
+  message: z.string().min(1, "Le message ne peut pas être vide."),
 });
 
-export async function submitRSVP(values: z.infer<typeof formSchema>) {
+export async function submitRSVP(values: { name: string; message: string }) {
   try {
-    const validatedFields = formSchema.parse(values);
+    const validatedFields = messageSchema.parse(values);
 
-    // Check deadlines (April 8, 2026)
-    const deadline = new Date("2026-04-08");
+    // Vérification deadline — on conserve la logique existante
+    const deadline = new Date("2026-05-15");
     if (new Date() > deadline) {
       return {
         success: false,
-        message: "Les inscriptions sont fermées depuis le 8 avril 2026.",
+        message: "Les messages ne sont plus acceptés.",
       };
     }
 
-    // Create Guest
-    await prisma.guest.create({
+    // Crée uniquement un Message (nom + voeu) — l'RSVP classique est fermé
+    await prisma.message.create({
       data: {
+        content: validatedFields.message,
         name: validatedFields.name,
-        email: validatedFields.email,
-        count: validatedFields.count,
-        wishes: validatedFields.wishes,
       },
     });
 
-    // Create Message if wishes exist
-    if (validatedFields.wishes) {
-      await prisma.message.create({
-        data: {
-          content: validatedFields.wishes,
-          name: validatedFields.name,
-        },
-      });
-    }
-
     revalidatePath("/");
-    return { success: true, message: "Inscription réussie !" };
+    return { success: true, message: "Message envoyé !" };
   } catch (error) {
-    console.error("RSVP Error:", error);
+    console.error("Message Error:", error);
 
     if (error instanceof z.ZodError) {
       return {
         success: false,
-        message: "Les informations fournies sont invalides.",
-      };
-    }
-
-    if (
-      error &&
-      typeof error === "object" &&
-      "code" in error &&
-      error.code === "P2002"
-    ) {
-      return {
-        success: false,
-        message: "Cet e-mail a déjà été utilisé pour une réservation.",
+        message: error.errors[0]?.message ?? "Les informations fournies sont invalides.",
       };
     }
 
     return {
       success: false,
-      message: "Une erreur est survenue lors de l'enregistrement.",
+      message: "Une erreur est survenue lors de l'envoi.",
     };
   }
 }

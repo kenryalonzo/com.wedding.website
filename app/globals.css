@@ -476,7 +476,7 @@ body {
     rgba(243, 155, 21, 0.8)
   );
   transform-origin: left;
-  animation: progressFill 3.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: progressFill 2s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 .loader-progress-glow {
@@ -487,7 +487,7 @@ body {
   border-radius: 50%;
   background: radial-gradient(ellipse, rgba(255, 215, 0, 0.6), transparent);
   filter: blur(4px);
-  animation: progressGlowSlide 3.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: progressGlowSlide 2s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
 @keyframes progressFill {
