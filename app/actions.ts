@@ -54,7 +54,7 @@ export async function getMessages() {
     return await prisma.message.findMany({
       orderBy: { createdAt: "desc" },
     });
-  } catch (_error) {
+  } catch {
     return [];
   }
 }

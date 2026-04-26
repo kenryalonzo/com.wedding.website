@@ -17,6 +17,13 @@ interface GuestbookFlipbookProps {
   messages: Message[];
 }
 
+type Face =
+  | { type: "cover" }
+  | { type: "message-stacked"; message: Message; index: number }
+  | { type: "message-info"; message: Message; index: number }
+  | { type: "message-content"; message: Message; index: number }
+  | { type: "thanks" };
+
 export default function GuestbookFlipbook({
   messages,
 }: GuestbookFlipbookProps) {
@@ -28,18 +35,28 @@ export default function GuestbookFlipbook({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile, { passive: true });
-    return () => window.removeEventListener("resize", checkMobile);
+
+    const init = () => {
+      setIsClient(true);
+      checkMobile();
+      window.addEventListener("resize", checkMobile, { passive: true });
+    };
+    
+    // Defer state updates to next frame to avoid "cascading renders" lint warning
+    const rafId = requestAnimationFrame(init);
+    
+    return () => {
+      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   // Adaptive data structure based on platform
   const faces = useMemo(() => {
     if (!isClient) return [];
     
-    const faceList: any[] = [];
+    const faceList: Face[] = [];
     
     // Page 0: Cover (Always Front of Leaf 0)
     faceList.push({ type: "cover" });
@@ -183,7 +200,7 @@ export default function GuestbookFlipbook({
   );
 }
 
-function renderFace(face: any, language: string, t: any, isBack: boolean, pageIdx: number) {
+function renderFace(face: Face, language: string, t: typeof translations.fr.guestbook, isBack: boolean, pageIdx: number) {
   const commonNames = translations[language as keyof typeof translations].common.coupleName;
 
   switch (face.type) {

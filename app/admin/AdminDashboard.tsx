@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Guest, Message } from "@prisma/client";
 import {
   Users,
@@ -133,12 +134,12 @@ export default function AdminDashboard({
             </h1>
             <p className="text-stone-500 text-sm">Gestion des inscriptions</p>
           </div>
-          <a
+          <Link
             href="/"
             className="text-sm text-gold hover:text-gold/80 transition-colors font-sans uppercase tracking-wider"
           >
             ← Retour au site
-          </a>
+          </Link>
         </div>
       </header>
 

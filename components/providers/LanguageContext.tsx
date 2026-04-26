@@ -19,7 +19,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const saved = localStorage.getItem("wedding-lang") as Language;
     if (saved && ["fr", "en", "de"].includes(saved)) {
-      setLanguage(saved);
+      requestAnimationFrame(() => setLanguage(saved));
     }
   }, []);
 
@@ -30,17 +30,17 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const t = (path: string) => {
     const keys = path.split(".");
-    let current: any = translations[language];
+    let current: Record<string, unknown> | string = translations[language] as Record<string, unknown>;
 
     for (const key of keys) {
-      if (current[key] === undefined) {
+      if (typeof current === "string" || current[key] === undefined) {
         console.warn(`Translation key not found: ${path}`);
         return path;
       }
-      current = current[key];
+      current = current[key] as Record<string, unknown> | string;
     }
 
-    return current;
+    return current as string;
   };
 
   return (
