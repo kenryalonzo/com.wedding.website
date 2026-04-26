@@ -50,14 +50,14 @@ export default function SaveTheDate() {
                 <div className="w-12 h-[2px] bg-linear-to-l from-transparent to-gold md:hidden" />
               </div>
 
-              <h2 className="text-3xl md:text-4xl font-serif text-gold tracking-tight leading-tight">
+              <h2 className="text-1xl md:text-2xl font-serif text-gold tracking-tight leading-tight">
                 {t.title1}
                 <span className="block text-gold italic mt-2">{t.title2}</span>
               </h2>
 
               <div className="space-y-4 py-6">
                 <div className="inline-block px-8 py-4 bg-white rounded-lg shadow-lg border border-gold/20">
-                  <p className="text-4xl md:text-5xl font-serif text-gold font-bold tracking-wide">
+                  <p className="text-3xl md:text-5xl font-serif text-gold font-bold tracking-wide">
                     {t.date}
                   </p>
                 </div>
