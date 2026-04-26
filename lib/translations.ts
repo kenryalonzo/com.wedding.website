@@ -84,7 +84,7 @@ export const translations = {
       pageLabel: "Page",
     },
     rsvp: {
-      title: "Laissez un mot",
+      title: "Un mot pour le livre d'or",
       subtitle: "Partagez vos vœux et félicitations pour Cédric & Karelle 💍",
       nameLabel: "Votre prénom",
       namePlaceholder: "Ex: Marie",
@@ -248,7 +248,7 @@ export const translations = {
       pageLabel: "Page",
     },
     rsvp: {
-      title: "Leave a message",
+      title: "A message for the guestbook",
       subtitle: "Share your wishes and blessings for Cédric & Karelle 💍",
       nameLabel: "Your first name",
       namePlaceholder: "e.g. Mary",
@@ -413,7 +413,7 @@ export const translations = {
       pageLabel: "Seite",
     },
     rsvp: {
-      title: "Nachricht hinterlassen",
+      title: "Nachricht für das Gästebuch",
       subtitle: "Teilen Sie Ihre Wünsche und Glückwünsche für Cédric & Karelle 💍",
       nameLabel: "Ihr Vorname",
       namePlaceholder: "z.B. Max",
