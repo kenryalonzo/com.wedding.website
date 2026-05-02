@@ -36,33 +36,43 @@ export default function LiveStream() {
               {t.description}
             </p>
 
-            <div className="pt-8">
+            <div className="w-full max-w-5xl mx-auto pt-8">
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-gold/20 bg-stone-900 group">
+                <iframe
+                  src="https://www.youtube.com/embed/ql-uKPU8cis"
+                  title="Wedding Live Stream"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="absolute inset-0 w-full h-full"
+                ></iframe>
+                
+                {/* Decorative overlay for when the stream hasn't started or to add a premium feel */}
+                <div className="absolute inset-0 pointer-events-none border border-white/10 rounded-2xl"></div>
+              </div>
+            </div>
+
+            <div className="pt-10">
               <a
                 href="https://youtube.com/live/ql-uKPU8cis?feature=share"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-4 bg-white hover:bg-stone-50 text-gold border-2 border-gold font-sans uppercase tracking-[0.2em] px-12 py-5 rounded-sm transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:-translate-y-1"
+                className="group inline-flex items-center gap-2 text-stone-500 hover:text-gold transition-colors font-sans text-sm uppercase tracking-widest"
               >
-                <div className="flex items-center justify-center w-8 h-8 bg-gold text-white rounded-full transition-transform group-hover:scale-110">
-                  <svg
-                    className="w-4 h-4 fill-current"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                  </svg>
-                </div>
-                <span className="font-bold">{t.button}</span>
+                <span>{t.button}</span>
+                <svg
+                  className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
               </a>
-            </div>
-
-            {/* Decorative YouTube element */}
-            <div className="mt-12 opacity-10 grayscale hover:grayscale-0 transition-all duration-700">
-               <div className="w-full max-w-md h-48 border-4 border-stone-200 rounded-xl flex items-center justify-center">
-                  <svg className="w-20 h-20 text-stone-400" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                  </svg>
-               </div>
             </div>
           </div>
         </ScrollReveal>
