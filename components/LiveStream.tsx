@@ -6,7 +6,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 export default function LiveStream() {
   const { language } = useLanguage();
-  const t = (translations[language] as any).liveStream;
+  const t = translations[language].liveStream;
 
   return (
     <section id="live" className="py-20 relative overflow-hidden bg-stone-50">
