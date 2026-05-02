@@ -21,6 +21,7 @@ export default function Header() {
       { id: "date", label: t.nav.saveTheDate, type: "anchor" as const },
       { id: "story", label: t.nav.story, type: "anchor" as const },
       { id: "infos", label: t.nav.info, type: "anchor" as const },
+      { id: "live", label: t.nav.live, type: "anchor" as const },
       { id: "galerie", label: t.nav.gallery, type: "anchor" as const },
       { id: "remerciements", label: t.nav.thanks, type: "anchor" as const },
       { id: "rsvp", label: t.nav.rsvp, type: "action" as const },

@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Story from "@/components/Story";
 import Countdown from "@/components/Countdown";
 import SaveTheDate from "@/components/SaveTheDate";
+import LiveStream from "@/components/LiveStream";
 import Testimonials from "@/components/Testimonials";
 import Location from "@/components/Location";
 import Donation from "@/components/Donation";
@@ -22,6 +23,7 @@ export default async function Home() {
         <Story />
       </Hero>
       <SaveTheDate />
+      <LiveStream />
       <Testimonials />
 
       <Donation />

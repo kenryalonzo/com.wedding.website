@@ -11,6 +11,7 @@ export const translations = {
       thanks: "Remerciements",
       location: "Lieu",
       guestbook: "Livre d'Or",
+      live: "En Direct",
       rsvp: "Vos Vœux",
     },
     headerSubtitle: "Mariage",
@@ -32,6 +33,12 @@ export const translations = {
       date: "2 Mai 2026",
       location: "Delmenhorst, Allemagne",
       quote: "N'hésitez pas à nous laisser un message, nous serons ravis de vous lire.",
+    },
+    liveStream: {
+      label: "En Direct",
+      title: "Suivez notre mariage en ligne",
+      description: "Pour ceux qui ne peuvent pas être présents physiquement, nous vous invitons à partager ce moment de joie avec nous en direct sur YouTube.",
+      button: "Regarder le direct",
     },
     countdown: {
       days: "Jours",
@@ -176,6 +183,7 @@ export const translations = {
       thanks: "Thanks",
       location: "Location",
       guestbook: "Guestbook",
+      live: "Live Stream",
       rsvp: "Your Wishes",
     },
     headerSubtitle: "Wedding",
@@ -197,6 +205,12 @@ export const translations = {
       date: "May 2, 2026",
       location: "Delmenhorst, Germany",
       quote: "Do not hesitate to leave us a message, we will be delighted to read it.",
+    },
+    liveStream: {
+      label: "Live Stream",
+      title: "Follow our wedding online",
+      description: "For those who cannot be physically present, we invite you to share this moment of joy with us live on YouTube.",
+      button: "Watch Live",
     },
     countdown: {
       days: "Days",
@@ -340,6 +354,7 @@ export const translations = {
       thanks: "Danke",
       location: "Ort",
       guestbook: "Gästebuch",
+      live: "Live-Stream",
       rsvp: "Ihre Wünsche",
     },
     headerSubtitle: "Hochzeit",
@@ -361,6 +376,12 @@ export const translations = {
       date: "2. Mai 2026",
       location: "Delmenhorst, Deutschland",
       quote: "Zögern Sie nicht, uns eine Nachricht zu hinterlassen, wir würden uns freuen, sie zu lesen.",
+    },
+    liveStream: {
+      label: "Live-Stream",
+      title: "Folgen Sie unserer Hochzeit online",
+      description: "Für diejenigen, die nicht physisch anwesend sein können, laden wir Sie ein, diesen Moment der Freude live auf YouTube mit uns zu teilen.",
+      button: "Live ansehen",
     },
     countdown: {
       days: "Tage",
